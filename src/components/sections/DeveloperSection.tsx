@@ -19,10 +19,7 @@ export function DeveloperSection({
   return (
     <section
       id="developer"
-      className={cn(
-        "py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50",
-        className
-      )}
+      className={cn("py-16 md:py-20 relative overflow-hidden", className)}
     >
       {/* Optional Section Header */}
       {(sectionTitle || sectionSubtitle) && (

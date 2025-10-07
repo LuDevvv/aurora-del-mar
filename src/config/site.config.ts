@@ -1,3 +1,7 @@
+import type { HeaderConfig } from "@components/layout/Header";
+import type { WhatsAppButtonConfig } from "@components/ui/WhatsAppButton";
+import type { FooterConfig } from "@components/layout/Footer";
+
 export const siteConfig = {
   name: "Aurora del Mar",
   description:
@@ -70,6 +74,71 @@ export const siteConfig = {
     { label: "Ubicación", href: "location" },
     { label: "Contacto", href: "contact" },
   ],
+};
+
+// Header Configuration - Simplified
+export const headerConfig: HeaderConfig = {
+  logo: {
+    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759871646/aurora-del-mar_otgefi.png",
+    alt: siteConfig.name,
+    width: 280,
+    height: 80,
+    href: "/",
+  },
+  whatsappNumber: siteConfig.contact.phone,
+  ctaButton: {
+    label: "Solicitar más información",
+    href: "#contact",
+    onClick: (e) => {
+      e.preventDefault();
+      // scrollToSection("contact");
+    },
+  },
+  maxWidth: "1400px",
+};
+
+// WhatsApp Floating Button Configuration
+export const whatsappConfig: WhatsAppButtonConfig = {
+  phoneNumber: siteConfig.contact.phone,
+  message: `Hola, estoy interesado en conocer más sobre ${siteConfig.name}`,
+  position: "bottom-right",
+  showOnScroll: true,
+  scrollThreshold: 300,
+  showAfterDelay: 3000,
+  size: "md",
+  color: siteConfig.colors.whatsapp,
+  hoverColor: "#22c55e",
+  pulseAnimation: true,
+  icon: "default",
+  ariaLabel: "Contáctanos por WhatsApp",
+};
+
+// Footer Configuration
+export const footerConfig = {
+  logo: {
+    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759871646/aurora-del-mar_otgefi.png",
+    alt: siteConfig.name,
+    width: 240,
+    height: 70,
+  },
+  description: siteConfig.description,
+  socialLinks: [
+    { platform: "facebook" as const, url: siteConfig.social.facebook },
+    { platform: "instagram" as const, url: siteConfig.social.instagram },
+  ],
+  contactInfo: {
+    address: siteConfig.contact.address.full,
+    phone: siteConfig.contact.phoneFormatted,
+    email: siteConfig.contact.email,
+  },
+  copyrightText: `© ${new Date().getFullYear()} ${siteConfig.name}. Todos los derechos reservados.`,
+
+  // Background Image - Dominican Republic beach/landscape
+  backgroundImage:
+    "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
+
+  overlayColor: "#1E3A5F", // Navy blue from your branding
+  overlayOpacity: 0.92, // Strong overlay for text contrast
 };
 
 // Location Configuration

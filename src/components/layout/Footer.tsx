@@ -2,34 +2,18 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Facebook,
   Instagram,
-  Twitter,
-  Linkedin,
-  Github,
   Mail,
   MapPin,
   Phone,
-  Calendar,
-  Clock,
+  ExternalLink,
 } from "lucide-react";
 import { cn } from "@lib/utils";
 
-export interface FooterLink {
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-export interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
-
 export interface SocialLink {
-  platform: "facebook" | "instagram" | "twitter" | "linkedin" | "github";
+  platform: "facebook" | "instagram";
   url: string;
 }
 
@@ -37,12 +21,6 @@ export interface ContactInfo {
   address?: string;
   phone?: string;
   email?: string;
-}
-
-export interface EventBanner {
-  show: boolean;
-  dates?: string;
-  hours?: string;
 }
 
 export interface FooterConfig {
@@ -53,15 +31,12 @@ export interface FooterConfig {
     height?: number;
   };
   description?: string;
-  sections?: FooterSection[];
   socialLinks?: SocialLink[];
   contactInfo?: ContactInfo;
-  eventBanner?: EventBanner;
   copyrightText?: string;
-  showLegalLinks?: boolean;
   backgroundImage?: string;
-  backgroundColor?: string;
-  overlay?: string;
+  overlayColor?: string;
+  overlayOpacity?: number;
 }
 
 interface FooterProps {
@@ -72,9 +47,6 @@ interface FooterProps {
 const socialIcons = {
   facebook: Facebook,
   instagram: Instagram,
-  twitter: Twitter,
-  linkedin: Linkedin,
-  github: Github,
 };
 
 export function Footer({ config, className }: FooterProps) {
@@ -82,94 +54,74 @@ export function Footer({ config, className }: FooterProps) {
 
   const defaultConfig: FooterConfig = {
     copyrightText: `© ${currentYear} Your Company. All rights reserved.`,
-    showLegalLinks: true,
-    backgroundColor: "#1f2937",
-    overlay: "rgba(31, 41, 55, 0.9)",
+    overlayColor: "#1E3A5F",
+    overlayOpacity: 0.92,
   };
 
   const finalConfig = { ...defaultConfig, ...config };
 
   return (
-    <footer className={cn("relative text-white", className)}>
+    <footer className={cn("relative text-white overflow-hidden", className)}>
       {/* Background Image with Overlay */}
       {finalConfig.backgroundImage && (
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={finalConfig.backgroundImage}
-            alt="Footer background"
-            fill
-            className="object-cover object-center"
-            priority={false}
-          />
-          {finalConfig.overlay && (
-            <div
-              className="absolute inset-0"
-              style={{ backgroundColor: finalConfig.overlay }}
+        <>
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={finalConfig.backgroundImage}
+              alt="Footer background"
+              fill
+              className="object-cover object-center"
+              priority={false}
+              quality={85}
             />
-          )}
-        </div>
+          </div>
+          {/* Gradient Overlay for better text contrast */}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              background: `linear-gradient(135deg, ${finalConfig.overlayColor} 0%, ${finalConfig.overlayColor}dd 100%)`,
+              opacity: finalConfig.overlayOpacity,
+            }}
+          />
+        </>
       )}
 
-      {/* Solid Background (if no image) */}
-      {!finalConfig.backgroundImage && finalConfig.backgroundColor && (
+      {/* Solid Background Fallback */}
+      {!finalConfig.backgroundImage && (
         <div
           className="absolute inset-0 z-0"
-          style={{ backgroundColor: finalConfig.backgroundColor }}
+          style={{
+            background: `linear-gradient(135deg, #1E3A5F 0%, #2d5650 100%)`,
+          }}
         />
       )}
 
-      {/* Event Banner */}
-      {finalConfig.eventBanner?.show && (
-        <div className="relative z-10 bg-primary-600 py-4">
-          <div className="container mx-auto px-4 max-w-7xl">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
-              {finalConfig.eventBanner.dates && (
-                <div className="flex items-center">
-                  <Calendar className="mr-2 h-5 w-5" />
-                  <span className="font-medium">
-                    {finalConfig.eventBanner.dates}
-                  </span>
-                </div>
-              )}
-              {finalConfig.eventBanner.hours && (
-                <div className="flex items-center">
-                  <Clock className="mr-2 h-5 w-5" />
-                  <span className="font-medium">
-                    {finalConfig.eventBanner.hours}
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Main Footer Content */}
-      <div className="relative z-10 container mx-auto px-4 max-w-7xl py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 max-w-7xl py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Logo and Description */}
           <div className="lg:col-span-1">
             {finalConfig.logo && (
-              <div className="mb-4">
+              <div className="mb-6">
                 <Image
                   src={finalConfig.logo.src}
                   alt={finalConfig.logo.alt}
-                  width={finalConfig.logo.width || 200}
-                  height={finalConfig.logo.height || 60}
-                  className="h-auto"
+                  width={finalConfig.logo.width || 240}
+                  height={finalConfig.logo.height || 70}
+                  className="h-auto max-w-[200px] md:max-w-[240px]"
                 />
               </div>
             )}
 
             {finalConfig.description && (
-              <p className="text-white/80 text-sm mb-5 max-w-sm">
+              <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6 max-w-md">
                 {finalConfig.description}
               </p>
             )}
 
             {/* Social Media Links */}
             {finalConfig.socialLinks && finalConfig.socialLinks.length > 0 && (
-              <div className="flex space-x-3 mt-6">
+              <div className="flex gap-3">
                 {finalConfig.socialLinks.map((social) => {
                   const Icon = socialIcons[social.platform];
                   return (
@@ -178,10 +130,20 @@ export function Footer({ config, className }: FooterProps) {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white/10 hover:bg-primary-600 p-2 rounded transition-colors"
-                      aria-label={social.platform}
+                      className={cn(
+                        "group relative w-11 h-11 rounded-xl",
+                        "bg-white/10 backdrop-blur-sm",
+                        "hover:bg-white/20",
+                        "flex items-center justify-center",
+                        "transition-all duration-300",
+                        "hover:scale-110 hover:shadow-lg"
+                      )}
+                      aria-label={`Follow us on ${social.platform}`}
                     >
-                      <Icon className="h-5 w-5" />
+                      <Icon
+                        className="h-5 w-5 text-white transition-transform group-hover:scale-110"
+                        strokeWidth={2}
+                      />
                     </a>
                   );
                 })}
@@ -189,102 +151,87 @@ export function Footer({ config, className }: FooterProps) {
             )}
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Information */}
           {finalConfig.contactInfo && (
-            <div>
-              <h3 className="text-lg font-semibold mb-5">Contact Us</h3>
-              <ul className="space-y-4">
+            <div className="lg:col-span-2">
+              <h3 className="text-lg md:text-xl font-bold mb-6 text-white">
+                Contáctanos
+              </h3>
+              <div className="space-y-5">
                 {finalConfig.contactInfo.address && (
-                  <li className="flex items-start">
-                    <MapPin className="h-5 w-5 mr-3 text-primary-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-white/80 text-sm">
-                      {finalConfig.contactInfo.address}
-                    </span>
-                  </li>
+                  <div className="flex items-start group">
+                    <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
+                      <MapPin className="h-5 w-5 text-white" strokeWidth={2} />
+                    </div>
+                    <div className="flex-1 pt-2">
+                      <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                        {finalConfig.contactInfo.address}
+                      </p>
+                    </div>
+                  </div>
                 )}
+
                 {finalConfig.contactInfo.phone && (
-                  <li className="flex items-center">
-                    <Phone className="h-5 w-5 mr-3 text-primary-400 flex-shrink-0" />
-                    <a
-                      href={`tel:${finalConfig.contactInfo.phone.replace(/\D/g, "")}`}
-                      className="text-white/80 text-sm hover:text-white transition-colors"
-                    >
-                      {finalConfig.contactInfo.phone}
-                    </a>
-                  </li>
+                  <a
+                    href={`tel:${finalConfig.contactInfo.phone.replace(/\D/g, "")}`}
+                    className="flex items-start group hover:translate-x-1 transition-transform"
+                  >
+                    <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
+                      <Phone className="h-5 w-5 text-white" strokeWidth={2} />
+                    </div>
+                    <div className="flex-1 pt-2">
+                      <p className="text-white/90 text-sm md:text-base font-medium group-hover:text-white transition-colors">
+                        {finalConfig.contactInfo.phone}
+                      </p>
+                    </div>
+                  </a>
                 )}
+
                 {finalConfig.contactInfo.email && (
-                  <li className="flex items-center">
-                    <Mail className="h-5 w-5 mr-3 text-primary-400 flex-shrink-0" />
-                    <a
-                      href={`mailto:${finalConfig.contactInfo.email}`}
-                      className="text-white/80 text-sm hover:text-white transition-colors"
-                    >
-                      {finalConfig.contactInfo.email}
-                    </a>
-                  </li>
+                  <a
+                    href={`mailto:${finalConfig.contactInfo.email}`}
+                    className="flex items-start group hover:translate-x-1 transition-transform"
+                  >
+                    <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mr-4 group-hover:bg-white/20 transition-colors">
+                      <Mail className="h-5 w-5 text-white" strokeWidth={2} />
+                    </div>
+                    <div className="flex-1 pt-2">
+                      <p className="text-white/90 text-sm md:text-base font-medium group-hover:text-white transition-colors">
+                        {finalConfig.contactInfo.email}
+                      </p>
+                    </div>
+                  </a>
                 )}
-              </ul>
+              </div>
             </div>
           )}
-
-          {/* Footer Sections */}
-          {finalConfig.sections?.map((section, index) => (
-            <div key={index}>
-              <h3 className="text-lg font-semibold mb-5">{section.title}</h3>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/80 text-sm hover:text-white transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-white/80 text-sm hover:text-white transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 mt-10 pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-white/70 text-sm text-center sm:text-left">
+        <div className="border-t border-white/20 mt-12 md:mt-16 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-white/70 text-sm text-center md:text-left">
               {finalConfig.copyrightText}
             </p>
-
-            {finalConfig.showLegalLinks && (
-              <div className="flex space-x-6">
-                <Link
-                  href="/privacy"
-                  className="text-white/70 text-sm hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/terms"
-                  className="text-white/70 text-sm hover:text-white transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </div>
-            )}
+            <a
+              href="https://casalinainmobiliaria.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors group"
+            >
+              <span>Powered by Casalina Inmobiliaria</span>
+              <ExternalLink
+                size={14}
+                className="group-hover:translate-x-0.5 transition-transform"
+              />
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-10 right-10 w-32 h-32 bg-white/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-primary-400/10 rounded-full blur-3xl" />
     </footer>
   );
 }

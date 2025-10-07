@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useIntersectionObserver } from "@hooks/useIntersectionObserver";
 
 interface AnimatedListProps {
   children: ReactNode[];

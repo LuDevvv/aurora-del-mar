@@ -27,7 +27,6 @@ export default function Home() {
         config={developerConfig}
         sectionTitle="Nuestro Desarrollador"
         sectionSubtitle="Experiencia y Compromiso"
-        className="bg-gradient-to-b from-white to-gray-50"
       />
 
       <StatsSection
