@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, forwardRef } from "react";
 import { Calendar, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib/utils";
 
 interface DatePickerProps {
   value?: Date;

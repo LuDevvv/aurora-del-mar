@@ -1,6 +1,6 @@
 import React from "react";
 import { DeveloperInfo, type DeveloperConfig } from "./DeveloperInfo";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib/utils";
 
 interface DeveloperSectionProps {
   configs: DeveloperConfig[];

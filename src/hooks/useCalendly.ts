@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import {
   calendlyService,
   type CalendlyConfig,
-} from "@/lib/services/calendly.service";
+} from "@lib/services/calendly.service";
 
 export function useCalendly() {
   const [isLoaded, setIsLoaded] = useState(false);

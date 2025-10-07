@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Stats, type StatsConfig } from "./Stats";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib/utils";
 
 export interface StatsSectionProps {
   title?: string;

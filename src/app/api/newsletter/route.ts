@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { newsletterSchema } from "@/lib/validations";
-import { emailService } from "@/lib/services/email.service";
+import { newsletterSchema } from "@lib/validations";
+import { emailService } from "@lib/services/email.service";
 import { ZodError } from "zod";
 
 export async function POST(request: NextRequest) {

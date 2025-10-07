@@ -1,0 +1,189 @@
+{
+  "home": {
+    "title": "Riviera del Este - Residencias de Lujo",
+    "hero": {
+      "headline": "Descubre tu nuevo hogar frente al mar",
+      "subheadline": "El lujo a tu alcance",
+      "cta": {
+        "schedule": "Agendar Cita",
+        "explore": "Explorar Propiedad"
+      }
+    },
+    "counter": {
+      "startsAbout": "Todo comienza en",
+      "days": "DÍAS",
+      "hours": "HORAS",
+      "minutes": "MINUTOS"
+    },
+    "features": {
+      "spaciousRooms": "Habitaciones Amplias",
+      "privateGarden": "Jardín Privado",
+      "walkInClosets": "Vestidores",
+      "swimmingPool": "Piscina"
+    },
+    "amenities": {
+      "badge": "Amenidades",
+      "primeLocation": "Ubicación Privilegiada",
+      "locationDescription": "Ubicado cerca de tiendas, cafeterías y parques, Riviera del Este te coloca justo donde quieres estar.",
+      "items": {
+        "multiUseCourt": "Cancha Multiusos",
+        "tennisCourt": "Cancha de Tenis",
+        "swimmingPool": "Piscina",
+        "bikePath": "Ciclovía",
+        "outdoorGym": "Gimnasios Exteriores",
+        "indoorGym": "Gimnasios Interiores",
+        "linearParks": "Parques Lineales",
+        "gardens": "Jardines",
+        "kidsArea": "Área de Niños",
+        "gazebo": "Gazebo",
+        "viewpoints": "Miradores",
+        "shops": "Distintos Comercios",
+        "church": "Iglesia",
+        "supermarket": "Supermercado"
+      }
+    },
+    "partners": {
+      "title": "Nuestros Colaboradores",
+      "ariaLabel": "Carrusel de logos de colaboradores"
+    },
+    "about": {
+      "title": "Sobre Riviera del Este",
+      "description": "Ubicado en la exclusiva zona de La Romana, Riviera del Este ofrece residencias de lujo con impresionantes vistas al océano. Nuestro proyecto residencial combina diseño moderno con el confort caribeño."
+    },
+    "units": {
+      "title": "Modelos Disponibles",
+      "subtitle": "Encuentra tu espacio ideal",
+      "onebed": "1 Habitación",
+      "twobed": "2 Habitaciones",
+      "threebed": "3 Habitaciones",
+      "penthouse": "Penthouse"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "subtitle": "Programa una Visita",
+      "description": "Estaremos encantados de atenderte para responder a todas tus preguntas",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "date": "Fecha de Visita",
+      "time": "Hora de Visita",
+      "message": "Mensaje (Opcional)",
+      "submit": "ENVIAR MENSAJE",
+      "sending": "Enviando...",
+      "success": "Mensaje enviado exitosamente",
+      "successDescription": "Te contactaremos pronto",
+      "error": "Hubo un error al enviar tu mensaje",
+      "retryMessage": "Intenta nuevamente en unos momentos",
+      "nameTooShort": "El nombre debe tener al menos 2 caracteres",
+      "emailInvalid": "Email inválido",
+      "dateRequired": "Fecha requerida",
+      "timeRequired": "Hora requerida",
+      "messageTooShort": "El mensaje debe tener al menos 10 caracteres",
+      "selectDate": "Seleccionar fecha",
+      "selectTime": "Seleccionar hora"
+    },
+    "location": {
+      "badge": "Ubicación",
+      "title": "Encuéntranos Aquí",
+      "propertyName": "Riviera del Este",
+      "address1": "Calle Santos Alcalá",
+      "address2": "San Pedro de Macorís 21000",
+      "reference": "Frente a Estación Total Higuamo",
+      "coordinates": "Coordenadas",
+      "openMaps": "Abrir en Maps"
+    },
+    "properties": {
+      "badge": "Modelos Disponibles",
+      "title": "Encuentra Tu Espacio Ideal",
+      "description": "Descubre nuestra selección de apartamentos exclusivos con diferentes distribuciones para adaptarse a tus necesidades.",
+      "contactAgent": "Contactar Agente",
+      "allProperties": "Todas",
+      "residences": "Residencias",
+      "premium": "Premium",
+      "bedrooms": "Habitaciones",
+      "patio": "Patio",
+      "terraza": "Terraza",
+      "studio": "Estudio",
+      "reserveButton": "Reservar con $1,000 USD",
+      "floor": "Piso",
+      "available": "Disponible",
+      "penthouse": "Penthouse",
+      "limitedUnits": "Pocas Unidades",
+      "reserveNow": "Reservar Ahora",
+      "onlyFewLeft": "Solo quedan pocas disponibles",
+      "specialOffer": {
+        "badge": "Oferta Especial",
+        "title": "¡Se Regala en Grande!",
+        "description": {
+          "part1": "Si reserva del",
+          "dates": "6 al 8 de Junio",
+          "part2": "con solo",
+          "amount": "$1,000 USD",
+          "part3": ", le incluimos",
+          "items": "estufa y nevera",
+          "part4": "completamente gratis."
+        },
+        "validity": "Válido solo durante el evento",
+        "limited": "¡LIMITADO!"
+      }
+    },
+    "gallery": {
+      "badge": "Galería",
+      "title": "Descubre cada rincón",
+      "description": "Explora nuestros hermosos espacios diseñados para la vida moderna.",
+      "viewAll": "Todo",
+      "exterior": "Exterior",
+      "interior": "Interior",
+      "facilities": "Amenidades"
+    },
+    "overview": {
+      "badge": "Sobre el Apartamento",
+      "title": "Vida Moderna, Diseñada Cuidadosamente",
+      "description": "Perfecto para familias, parejas y profesionales este apartamento combina comodidad, conveniencia y un estilo moderno.",
+      "feature1": "Acabados premium y electrodomésticos modernos",
+      "feature2": "Espacios de vida de concepto abierto",
+      "feature3": "Soluciones de almacenamiento inteligentes",
+      "items": {
+        "edifPremium": "EDIF. PREMIUM",
+        "terrazaPh": "TERRAZA PH",
+        "patio1erNivel": "PATIO 1ER NIVEL",
+        "vistaInterior": "VISTA INTERIOR",
+        "edifResidence": "EDIF. RESIDENCE"
+      }
+    }
+  },
+  "common": {
+    "nav": {
+      "models": "Modelos",
+      "gallery": "Galería",
+      "contact": "Contacto",
+      "location": "Ubicación",
+      "schedule": "Agendar Cita"
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio",
+      "contactTitle": "Contáctanos",
+      "description": "Riviera del Este ofrece propiedades premium en San Pedro de Macorís, con impresionantes vistas y modernas comodidades para un estilo de vida de lujo confortable.",
+      "address": "Calle Santos Alcalá, San Pedro de Macorís 21000",
+      "quickLinks": "Enlaces Rápidos",
+      "newsletter": "Boletín Informativo",
+      "newsletterDesc": "Suscríbete para recibir las últimas noticias y actualizaciones sobre nuestras propiedades.",
+      "emailPlaceholder": "Tu correo electrónico",
+      "subscribe": "Suscribirse",
+      "event": {
+        "dates": "Feria Inmobiliaria Del 6 al 8 de Junio, 2025",
+        "hours": "Abierto Diariamente: 10:00 AM - 5:00 PM"
+      }
+    },
+    "whatsapp": {
+      "ariaLabel": "Contáctanos vía WhatsApp",
+      "defaultMessage": "¡Hola! Estoy interesado(a) en las propiedades de Riviera del Este. ¿Podrían proporcionarme más información?"
+    },
+    "languageSwitcher": {
+      "en": "Inglés",
+      "es": "Español"
+    }
+  }
+}

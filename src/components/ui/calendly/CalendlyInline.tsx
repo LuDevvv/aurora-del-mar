@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import {
   calendlyService,
   type CalendlyConfig,
-} from "@/lib/services/calendly.service";
+} from "@lib/services/calendly.service";
 
 interface CalendlyInlineProps {
   config?: Partial<CalendlyConfig>;

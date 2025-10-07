@@ -1,0 +1,189 @@
+{
+  "home": {
+    "title": "Riviera del Este - Luxury Residences",
+    "hero": {
+      "headline": "Discover Your New Seafront Home",
+      "subheadline": "Luxury Within Your Reach",
+      "cta": {
+        "schedule": "SCHEDULE A VISIT",
+        "explore": "EXPLORE PROPERTY"
+      }
+    },
+    "counter": {
+      "startsAbout": "Everything starts in",
+      "days": "DAYS",
+      "hours": "HOURS",
+      "minutes": "MINUTES"
+    },
+    "features": {
+      "spaciousRooms": "Spacious Rooms",
+      "privateGarden": "Private Garden",
+      "walkInClosets": "Walk-in Closets",
+      "swimmingPool": "Swimming Pool"
+    },
+    "amenities": {
+      "badge": "Amenities",
+      "primeLocation": "Prime Location",
+      "locationDescription": "Located near shops, cafés, and parks, Riviera del Este places you right where you want to be.",
+      "items": {
+        "multiUseCourt": "Multi-purpose Court",
+        "tennisCourt": "Tennis Court",
+        "swimmingPool": "Swimming Pool",
+        "bikePath": "Bike Path",
+        "outdoorGym": "Outdoor Gym",
+        "indoorGym": "Indoor Gym",
+        "linearParks": "Linear Parks",
+        "gardens": "Gardens",
+        "kidsArea": "Children's Play Area",
+        "gazebo": "Gazebo",
+        "viewpoints": "Viewpoints",
+        "shops": "Shops",
+        "church": "Church",
+        "supermarket": "Supermarket"
+      }
+    },
+    "partners": {
+      "title": "Our Partners",
+      "ariaLabel": "Partners logo carousel"
+    },
+    "about": {
+      "title": "About Riviera del Este",
+      "description": "Located in the exclusive area of La Romana, Riviera del Este offers luxury residences with breathtaking ocean views. Our residential project combines modern design with Caribbean comfort."
+    },
+    "units": {
+      "title": "Available Units",
+      "subtitle": "Find your ideal space",
+      "onebed": "1 Bedroom",
+      "twobed": "2 Bedrooms",
+      "threebed": "3 Bedrooms",
+      "penthouse": "Penthouse"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Schedule a Visit",
+      "description": "We'll be happy to assist you with any questions you might have",
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "date": "Visit Date",
+      "time": "Visit Time",
+      "message": "Message (Optional)",
+      "submit": "SEND MESSAGE",
+      "sending": "Sending...",
+      "success": "Message sent successfully",
+      "successDescription": "We will contact you soon",
+      "error": "There was an error sending your message",
+      "retryMessage": "Try again in a few moments",
+      "nameTooShort": "Name must be at least 2 characters",
+      "emailInvalid": "Invalid email",
+      "dateRequired": "Date is required",
+      "timeRequired": "Time is required",
+      "messageTooShort": "Message must be at least 10 characters",
+      "selectDate": "Select date",
+      "selectTime": "Select time"
+    },
+    "location": {
+      "badge": "Location",
+      "title": "Find Us Here",
+      "propertyName": "Riviera del Este",
+      "address1": "Calle Santos Alcalá",
+      "address2": "San Pedro de Macorís 21000",
+      "reference": "In front of Total Higuamo Station",
+      "coordinates": "Coordinates",
+      "openMaps": "Open in Maps"
+    },
+    "properties": {
+      "badge": "Available Units",
+      "title": "Find Your Ideal Space",
+      "description": "Discover our selection of exclusive apartments with various layouts to suit your needs.",
+      "contactAgent": "Contact Agent",
+      "allProperties": "All",
+      "residences": "Residences",
+      "premium": "Premium",
+      "bedrooms": "Bedrooms",
+      "patio": "Patio",
+      "terraza": "Terrace",
+      "studio": "Studio",
+      "reserveButton": "Reserve with $1,000 USD",
+      "floor": "Floor",
+      "available": "Available",
+      "penthouse": "Penthouse",
+      "limitedUnits": "Limited Units",
+      "reserveNow": "Reserve Now",
+      "onlyFewLeft": "Only few units left",
+      "specialOffer": {
+        "badge": "Special Offer",
+        "title": "We Give Big!",
+        "description": {
+          "part1": "If you reserve from",
+          "dates": "June 6-8",
+          "part2": "with only",
+          "amount": "$1,000 USD",
+          "part3": ", we include",
+          "items": "stove and refrigerator",
+          "part4": "completely free."
+        },
+        "validity": "Valid only during the event",
+        "limited": "LIMITED!"
+      }
+    },
+    "gallery": {
+      "badge": "Gallery",
+      "title": "Discover Every Corner",
+      "description": "Explore our beautiful spaces designed for modern living.",
+      "viewAll": "All",
+      "exterior": "Exterior",
+      "interior": "Interior",
+      "facilities": "Amenities"
+    },
+    "overview": {
+      "badge": "About the Apartment",
+      "title": "Modern Living, Thoughtfully Designed",
+      "description": "Perfect for families, couples, and professionals, this apartment combines comfort, convenience, and a clean contemporary style.",
+      "feature1": "Premium finishes and modern appliances",
+      "feature2": "Open-concept living spaces",
+      "feature3": "Thoughtful storage solutions",
+      "items": {
+        "edifPremium": "PREMIUM BUILDING",
+        "terrazaPh": "PENTHOUSE TERRACE",
+        "patio1erNivel": "1ST LEVEL PATIO",
+        "vistaInterior": "INTERIOR VIEW",
+        "edifResidence": "RESIDENCE BUILDING"
+      }
+    }
+  },
+  "common": {
+    "nav": {
+      "models": "Models",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "location": "Location",
+      "schedule": "SCHEDULE A VISIT"
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contactTitle": "Contact Us",
+      "description": "Riviera del Este offers premium properties in San Pedro de Macorís, featuring breathtaking views and modern amenities for a comfortable luxury lifestyle.",
+      "address": "Calle Santos Alcalá, San Pedro de Macorís 21000",
+      "quickLinks": "Quick Links",
+      "newsletter": "Newsletter",
+      "newsletterDesc": "Subscribe to receive the latest news and updates about our properties.",
+      "emailPlaceholder": "Your email",
+      "subscribe": "Subscribe",
+      "event": {
+        "dates": "Property Showcase: June 6-8, 2025",
+        "hours": "Open Daily: 10:00 AM - 5:00 PM"
+      }
+    },
+    "whatsapp": {
+      "ariaLabel": "Contact us via WhatsApp",
+      "defaultMessage": "Hi! I'm interested in Riviera del Este properties. Could you provide more information?"
+    },
+    "languageSwitcher": {
+      "en": "English",
+      "es": "Spanish"
+    }
+  }
+}

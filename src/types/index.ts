@@ -1,5 +1,3 @@
-// src/types/index.ts
-
 // API Response types
 export interface ApiResponse<T = any> {
   success: boolean;

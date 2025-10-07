@@ -3,15 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/forms/Button";
-
-export interface NavItem {
-  label: string;
-  href: string;
-  children?: NavItem[];
-}
+import { MessageCircle, Globe } from "lucide-react";
+import { cn } from "@lib/utils";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "@i18n/navigation";
 
 export interface HeaderConfig {
   logo: {
@@ -21,93 +16,65 @@ export interface HeaderConfig {
     height?: number;
     href?: string;
   };
-  navItems: NavItem[];
+  whatsappNumber: string;
   ctaButton?: {
     label: string;
     href: string;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    icon?: React.ReactNode;
   };
-  sticky?: boolean;
-  transparent?: boolean;
-  darkMode?: boolean;
   maxWidth?: string;
 }
 
 interface HeaderProps {
   config: HeaderConfig;
   className?: string;
-  onNavClick?: (href: string, e: React.MouseEvent) => void;
 }
 
-export function Header({ config, className, onNavClick }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export function Header({ config, className }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const currentLocale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const {
-    logo,
-    navItems,
-    ctaButton,
-    sticky = true,
-    transparent = false,
-    darkMode = false,
-    maxWidth = "1300px",
-  } = config;
+  const { logo, whatsappNumber, ctaButton, maxWidth = "1400px" } = config;
 
-  // Handle scroll for sticky header
+  // Handle scroll for shadow effect
   useEffect(() => {
-    if (!sticky && !transparent) return;
-
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [sticky, transparent]);
+  }, []);
 
-  // Disable body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+  const handleWhatsAppClick = () => {
+    const cleanNumber = whatsappNumber.replace(/\D/g, "");
+    const message = encodeURIComponent(
+      "Hola, estoy interesado en conocer más sobre Aurora del Mar"
+    );
+    window.open(`https://wa.me/${cleanNumber}?text=${message}`, "_blank");
+  };
 
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [mobileMenuOpen]);
-
-  const handleNavItemClick = (
-    href: string,
-    e: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    if (onNavClick) {
-      onNavClick(href, e);
-    }
-    setMobileMenuOpen(false);
+  const handleLanguageToggle = () => {
+    const newLocale = currentLocale === "es" ? "en" : "es";
+    router.replace(pathname, { locale: newLocale });
   };
 
   const handleCtaClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (ctaButton?.onClick) {
       ctaButton.onClick(e);
     }
-    setMobileMenuOpen(false);
   };
 
-  const headerClasses = cn(
-    "w-full z-50 transition-all duration-300",
-    sticky && "sticky top-0",
-    transparent && !scrolled ? "bg-transparent" : "bg-white shadow-md",
-    className
-  );
-
-  const textColor =
-    darkMode || (transparent && !scrolled) ? "text-white" : "text-gray-800";
-
   return (
-    <header className={headerClasses}>
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300",
+        scrolled ? "shadow-md" : "shadow-sm",
+        className
+      )}
+    >
       <div className="py-4">
         <div className="mx-auto px-4 sm:px-6" style={{ maxWidth }}>
           <div className="flex items-center justify-between gap-4">
@@ -119,141 +86,71 @@ export function Header({ config, className, onNavClick }: HeaderProps) {
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width || 160}
-                height={logo.height || 64}
-                className="object-contain"
+                width={logo.width || 280}
+                height={logo.height || 80}
+                className="object-contain h-12 md:h-16 w-auto"
                 priority
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center justify-center space-x-2 lg:space-x-8 flex-1">
-              {navItems.map((item) => (
-                <div key={item.href} className="relative group">
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavItemClick(item.href, e)}
-                    className={cn(
-                      "text-base font-semibold transition-colors px-2 py-1",
-                      "hover:text-primary-600",
-                      textColor
-                    )}
-                  >
-                    {item.label}
-                  </a>
+            {/* Right side buttons */}
+            <div className="flex items-center gap-3 md:gap-4">
+              {/* Language Toggle */}
+              <button
+                onClick={handleLanguageToggle}
+                className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                aria-label="Cambiar idioma"
+              >
+                <Globe size={20} className="text-gray-700" />
+              </button>
 
-                  {/* Dropdown menu for children */}
-                  {item.children && item.children.length > 0 && (
-                    <div className="absolute left-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <div className="py-2">
-                        {item.children.map((child) => (
-                          <a
-                            key={child.href}
-                            href={child.href}
-                            onClick={(e) => handleNavItemClick(child.href, e)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-                            {child.label}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </nav>
+              {/* WhatsApp Button */}
+              <button
+                onClick={handleWhatsAppClick}
+                className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#25D366] hover:bg-[#22c55e] transition-colors shadow-md hover:shadow-lg"
+                aria-label="Contactar por WhatsApp"
+              >
+                <MessageCircle size={20} className="text-white" />
+              </button>
 
-            {/* Desktop CTA Button */}
-            {ctaButton && (
-              <div className="hidden md:block">
-                <Button
+              {/* CTA Button */}
+              {ctaButton && (
+                <button
                   onClick={handleCtaClick}
-                  variant="primary"
-                  size="md"
-                  leftIcon={ctaButton.icon}
+                  className="hidden sm:flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3 bg-gradient-to-r from-primary to-primary-dark text-white rounded-lg font-semibold text-sm md:text-base hover:opacity-90 transition-all shadow-primary-md hover:shadow-primary-lg"
+                >
+                  <span>{ctaButton.label}</span>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    className="hidden md:block"
+                  >
+                    <path
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              )}
+
+              {/* Mobile CTA Button - Simplified */}
+              {ctaButton && (
+                <button
+                  onClick={handleCtaClick}
+                  className="sm:hidden flex items-center justify-center px-4 py-2.5 bg-gradient-to-r from-primary to-primary-dark text-white rounded-lg font-semibold text-sm hover:opacity-90 transition-all shadow-primary-md"
                 >
                   {ctaButton.label}
-                </Button>
-              </div>
-            )}
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={cn("md:hidden z-50", textColor)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 top-[84px] bg-white z-40 md:hidden animate-fade-in"
-          style={{
-            animation: "fadeIn 0.2s ease-in-out forwards",
-          }}
-        >
-          <div className="overflow-y-auto h-full">
-            <nav className="flex flex-col">
-              {navItems.map((item, index) => (
-                <React.Fragment key={item.href}>
-                  <div>
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleNavItemClick(item.href, e)}
-                      className="flex items-center justify-between px-6 py-4 text-base font-medium text-gray-800 hover:bg-gray-50 transition-colors"
-                    >
-                      <span>{item.label}</span>
-                      {item.children && item.children.length > 0 && (
-                        <ChevronDown size={20} className="text-gray-400" />
-                      )}
-                    </a>
-
-                    {/* Mobile submenu */}
-                    {item.children && item.children.length > 0 && (
-                      <div className="bg-gray-50">
-                        {item.children.map((child) => (
-                          <a
-                            key={child.href}
-                            href={child.href}
-                            onClick={(e) => handleNavItemClick(child.href, e)}
-                            className="block px-8 py-3 text-sm text-gray-600 hover:bg-gray-100 transition-colors"
-                          >
-                            {child.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {index < navItems.length - 1 && (
-                    <div className="h-px bg-gray-200" />
-                  )}
-                </React.Fragment>
-              ))}
-
-              {/* Mobile CTA Button */}
-              {ctaButton && (
-                <div className="px-6 py-6 border-t border-gray-200">
-                  <Button
-                    onClick={handleCtaClick}
-                    variant="primary"
-                    size="lg"
-                    fullWidth
-                    leftIcon={ctaButton.icon}
-                  >
-                    {ctaButton.label}
-                  </Button>
-                </div>
-              )}
-            </nav>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

@@ -3,8 +3,8 @@
 import {
   calendlyService,
   type CalendlyConfig,
-} from "@/lib/services/calendly.service";
-import { cn } from "@/lib/utils";
+} from "@lib/services/calendly.service";
+import { cn } from "@lib/utils";
 
 interface CalendlyButtonProps {
   config?: Partial<CalendlyConfig>;

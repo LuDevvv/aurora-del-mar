@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import type { ContactFormData } from "@/lib/validations";
+import type { ContactFormData } from "@lib/validations";
 
 // Email configuration interface
 interface EmailConfig {
