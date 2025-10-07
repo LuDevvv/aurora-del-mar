@@ -87,52 +87,90 @@ export const locationConfig = {
   cardPosition: "top-left" as const,
 };
 
-// Stats Configuration
 export const statsConfig = {
   stats: [
     {
-      value: siteConfig.stats.units,
-      label: "Unidades Residenciales",
-      color: siteConfig.colors.primary,
+      value: "3,650",
+      prefix: "+",
+      label: "Apartamentos entregados",
+      color: "#F97316",
+      icon: "building" as const,
     },
     {
-      value: siteConfig.stats.amenities,
-      label: "Amenidades Premium",
-      color: siteConfig.colors.primary,
+      value: "30",
+      prefix: "+",
+      label: "Años de experiencia",
+      color: "#F97316",
+      icon: "calendar" as const,
     },
     {
-      value: siteConfig.stats.greenAreas,
-      label: "m² de Áreas Verdes",
-      color: siteConfig.colors.primary,
+      value: "1,650",
+      prefix: "+",
+      label: "Colaboradores",
+      color: "#F97316",
+      icon: "users" as const,
     },
     {
-      value: siteConfig.stats.security,
-      label: "Seguridad",
-      color: siteConfig.colors.primary,
+      value: "2,000",
+      prefix: "+",
+      label: "Apartamentos en proyecto",
+      color: "#F97316",
+      icon: "trending" as const,
     },
   ],
   layout: "2-columns" as const,
-  backgroundColor: "#f0f9f7",
-  textColor: "#1f2937",
-  accentColor: siteConfig.colors.primary,
+  backgroundColor: "#FEF3F2",
+  textColor: "#1E3A5F",
+  accentColor: "#F97316",
   animated: true,
 };
 
-// Developer Configuration
-export const developerConfigs = [
-  {
-    badge: "Desarrollado por",
-    logo: {
-      src: siteConfig.developer.logo,
-      alt: siteConfig.developer.name,
-      width: 220,
-      height: 80,
-    },
-    title: siteConfig.developer.name,
-    description: siteConfig.developer.description,
-    highlightText: "líder en desarrollo",
-    backgroundColor: "#ffffff",
-    textColor: "#1f2937",
-    accentColor: siteConfig.colors.primary,
+export const developerConfig = {
+  // Header Badge
+  badge: "DESARROLLADOR Y CONSTRUCTOR",
+
+  // Logo Configuration
+  logo: {
+    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759873868/BDREX-Logo-FC-300x142_sdkpbo.png", // Update with your actual logo path
+    alt: "BDREX - Desarrollador y Constructor",
+    width: 280,
+    height: 100,
   },
-];
+
+  // Main Tagline (appears first, larger text)
+  tagline:
+    "Nuestra pasión por la calidad y la innovación nos impulsa a crear espacios que",
+
+  // Text to highlight in the tagline (will be colored with accentColor)
+  highlightText: "superan las expectativas de nuestros clientes.",
+
+  // Secondary Description (appears below tagline, smaller text)
+  projectInfo:
+    "Aurora del Mar es un proyecto de BDREX, una empresa con más de 30 años de experiencia en el sector de la construcción y desarrollo inmobiliario en República Dominicana.",
+
+  // Feature Cards (2 column grid)
+  features: [
+    {
+      icon: "building" as const,
+      text: "Más de 3,650 apartamentos entregados con los más altos estándares de calidad",
+    },
+    {
+      icon: "award" as const,
+      text: "30+ años construyendo comunidades y transformando espacios en hogares",
+    },
+    {
+      icon: "sparkles" as const,
+      text: "Innovación constante en diseño arquitectónico y tecnología de construcción",
+    },
+    {
+      icon: "trending" as const,
+      text: "2,000+ apartamentos en desarrollo, expandiendo nuestra visión de calidad",
+    },
+  ],
+
+  // Visual Theme Colors
+  backgroundColor: "#FFFFFF", // Card background
+  textColor: "#1f2937", // Main text color
+  accentColor: "#F97316", // Orange - highlights and icons
+  badgeColor: "#1E3A5F", // Navy blue - header badge
+};

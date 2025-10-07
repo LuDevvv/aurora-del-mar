@@ -5,11 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, User, Phone, MessageSquare, Clock } from "lucide-react";
 import { contactFormSchema, type ContactFormData } from "@lib/validations";
-import { Input } from "@/components/ui/forms/Input";
-import { Textarea } from "@/components/ui/forms/Textarea";
-import { Select } from "@/components/ui/forms/Select";
-import { Button } from "@/components/ui/forms/Button";
-import { DatePicker } from "@/components/ui/forms/DatePicker";
+import { Input } from "@components/ui/forms/Input";
+import { Textarea } from "@components/ui/forms/Textarea";
+import { Select } from "@components/ui/forms/Select";
+import { Button } from "@components/ui/forms/Button";
+import { DatePicker } from "@components/ui/forms/DatePicker";
 
 export interface ContactFormConfig {
   showPhone?: boolean;

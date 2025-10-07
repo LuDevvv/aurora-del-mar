@@ -2,18 +2,18 @@ import React from "react";
 import LandingPageLayout from "@components/landing/LandingPageLayout";
 import { LocationMap } from "@components/sections/LocationMap";
 import { StatsSection } from "@components/sections/StatsSection";
-import { DeveloperSection } from "@components/sections/DeveloperSection";
 import {
-  developerConfigs,
+  developerConfig,
   locationConfig,
   siteConfig,
   statsConfig,
 } from "@config/site.config";
+import { DeveloperSection } from "@components/sections/DeveloperSection";
 
 export default function Home() {
   return (
     <LandingPageLayout>
-      <LocationMap
+      {/* <LocationMap
         title="Ubicación Estratégica"
         badge="Encuéntranos"
         config={locationConfig}
@@ -21,21 +21,19 @@ export default function Home() {
           mobile: "400px",
           desktop: "550px",
         }}
+      /> */}
+
+      <DeveloperSection
+        config={developerConfig}
+        sectionTitle="Nuestro Desarrollador"
+        sectionSubtitle="Experiencia y Compromiso"
+        className="bg-gradient-to-b from-white to-gray-50"
       />
 
       <StatsSection
         title={`${siteConfig.name} en Números`}
         subtitle="Excelencia en cada detalle"
         config={statsConfig}
-        className="bg-white"
-      />
-
-      <DeveloperSection
-        configs={developerConfigs}
-        layout="1-column"
-        sectionTitle="Nuestro Desarrollador"
-        sectionSubtitle="Experiencia y Compromiso"
-        className="bg-gray-50"
       />
     </LandingPageLayout>
   );

@@ -20,7 +20,7 @@ export default function LandingPageLayout({
   // Header Configuration - Simplified
   const headerConfig: HeaderConfig = {
     logo: {
-      src: "/logo.png",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759871646/aurora-del-mar_otgefi.png",
       alt: siteConfig.name,
       width: 280,
       height: 80,
