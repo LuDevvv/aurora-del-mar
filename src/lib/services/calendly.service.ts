@@ -28,7 +28,7 @@ export class CalendlyService {
 
   constructor() {
     this.baseUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "";
-    this.apiKey = process.env.CALENDLY_API_KEY;
+    this.apiKey = process.env.NEXT_CALENDLY_API_KEY;
 
     if (!this.baseUrl) {
       console.warn("⚠️ NEXT_PUBLIC_CALENDLY_URL not configured");
