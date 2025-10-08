@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary palette - Aurora Blue
+        // Primary palette - Aura Blue
         primary: {
           50: "#E6F2FF",
           100: "#CCE5FF",

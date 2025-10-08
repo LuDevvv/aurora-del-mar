@@ -27,14 +27,14 @@ const jost = Jost({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aurora.casalinainmobiliaria.com"),
   title: {
-    default: "Aurora del Mar - Residencias de Lujo en Santo Domingo Este",
-    template: "%s | Aurora del Mar",
+    default: "Aura del Mar - Residencias de Lujo en Santo Domingo Este",
+    template: "%s | Aura del Mar",
   },
   description:
-    "Descubre Aurora del Mar: exclusivo proyecto residencial con apartamentos de 2 y 3 habitaciones en Santo Domingo Este. Amenidades premium, áreas verdes y ubicación privilegiada. Feria inmobiliaria 6-8 junio 2025.",
+    "Descubre Aura del Mar: exclusivo proyecto residencial con apartamentos de 2 y 3 habitaciones en Santo Domingo Este. Amenidades premium, áreas verdes y ubicación privilegiada. Feria inmobiliaria 6-8 junio 2025.",
 
   keywords: [
-    "Aurora del Mar",
+    "Aura del Mar",
     "apartamentos lujo Santo Domingo Este",
     "residencias premium República Dominicana",
     "apartamentos Santo Domingo",
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
     locale: "es_DO",
     alternateLocale: ["en_US"],
     url: "https://aurora.casalinainmobiliaria.com",
-    siteName: "Aurora del Mar",
-    title: "Aurora del Mar - Residencias de Lujo en Santo Domingo Este",
+    siteName: "Aura del Mar",
+    title: "Aura del Mar - Residencias de Lujo en Santo Domingo Este",
     description:
       "Exclusivo proyecto residencial con apartamentos de 2-3 habitaciones. Amenidades premium, áreas verdes y ubicación privilegiada en Santo Domingo Este.",
     images: [
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aurora del Mar - Residencias de lujo en Santo Domingo Este",
+        alt: "Aura del Mar - Residencias de lujo en Santo Domingo Este",
         type: "image/png",
       },
     ],
@@ -87,13 +87,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@casalinasrl",
     creator: "@casalinasrl",
-    title: "Aurora del Mar - Residencias de Lujo",
+    title: "Aura del Mar - Residencias de Lujo",
     description:
       "Exclusivo proyecto residencial en Santo Domingo Este. Apartamentos premium con amenidades de primer nivel.",
     images: [
       {
         url: "/images/og-image.png",
-        alt: "Aurora del Mar - Vista exterior del complejo residencial",
+        alt: "Aura del Mar - Vista exterior del complejo residencial",
       },
     ],
   },
@@ -182,8 +182,8 @@ export default async function LocaleLayout({
         />
 
         {/* Apple specific tags */}
-        <meta name="apple-mobile-web-app-title" content="Aurora del Mar" />
-        <meta name="application-name" content="Aurora del Mar" />
+        <meta name="apple-mobile-web-app-title" content="Aura del Mar" />
+        <meta name="application-name" content="Aura del Mar" />
 
         {/* Business/Location specific meta tags */}
         <meta name="geo.region" content="DO-32" />
@@ -198,7 +198,7 @@ export default async function LocaleLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "RealEstateAgent",
-              name: "Aurora del Mar - Casalina Inmobiliaria",
+              name: "Aura del Mar - Casalina Inmobiliaria",
               image: "/images/og-image.png",
               description:
                 "Residencias de lujo en Santo Domingo Este con amenidades premium",

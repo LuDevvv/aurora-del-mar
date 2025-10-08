@@ -1,9 +1,13 @@
 import type { HeaderConfig } from "@components/layout/Header";
 import type { WhatsAppButtonConfig } from "@components/ui/WhatsAppButton";
 import type { FooterConfig } from "@components/layout/Footer";
+import type { ContactSectionConfig } from "@components/sections/ContactSection";
+import type { HeroSectionConfig } from "@components/sections/HeroSection";
+import { AmenitiesSliderConfig } from "@components/sections/AmenitiesSlider";
+import { GallerySectionConfig } from "@components/sections/GallerySection";
 
 export const siteConfig = {
-  name: "Aurora del Mar",
+  name: "Aura del Mar",
   description:
     "Residencias de lujo en Santo Domingo Este con amenidades premium y ubicación privilegiada",
   url: "https://aurora.casalinainmobiliaria.com",
@@ -14,14 +18,14 @@ export const siteConfig = {
     phoneFormatted: "+1 (809) 299-5767",
     email: "info@casalinainmobiliaria.com",
     address: {
-      line1: "Santo Domingo Este",
-      line2: "República Dominicana",
-      full: "Santo Domingo Este, República Dominicana",
+      line1: "Aura Del Mar",
+      line2: "Cap Cana",
+      full: "Cap Cana, Aura del Mar",
     },
     coordinates: {
-      lat: 18.4861,
-      lng: -69.8597,
-      formatted: "18.4861, -69.8597",
+      lat: 18.4686503,
+      lng: -68.4119377,
+      formatted: "18.4686503, -68.4119377",
     },
   },
 
@@ -29,15 +33,6 @@ export const siteConfig = {
   social: {
     facebook: "https://www.facebook.com/casalinainmobiliaria",
     instagram: "https://www.instagram.com/casalinasrl/",
-    twitter: "@casalinasrl",
-  },
-
-  // Event Information
-  event: {
-    show: true,
-    name: "Feria Inmobiliaria",
-    dates: "6-8 de Junio, 2025",
-    hours: "10:00 AM - 5:00 PM",
   },
 
   // Brand Colors
@@ -147,12 +142,11 @@ export const locationConfig = {
   address: {
     line1: siteConfig.contact.address.line1,
     line2: siteConfig.contact.address.line2,
-    reference: `Ubicación privilegiada en ${siteConfig.contact.address.line1}`,
   },
   coordinates: siteConfig.contact.coordinates.formatted,
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.5!2d-69.8597!3d18.4861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzEwLjAiTiA2OcKwNTEnMzUuMCJX!5e0!3m2!1sen!2sdo!4v1234567890",
-  googleMapsUrl: `https://maps.google.com/?q=${siteConfig.contact.coordinates.lat},${siteConfig.contact.coordinates.lng}`,
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2232.1641174514625!2d-68.4119377!3d18.4686503!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea89b003efe8f35%3A0x5b8cd5defed28837!2sAURA%20DEL%20MAR%20cap%20cana!5e1!3m2!1ses-419!2sdo!4v1759890642903!5m2!1ses-419!2sdo",
+  googleMapsUrl: `https://maps.app.goo.gl/zx3pkiL3VPe4zbbG7`,
   cardPosition: "top-left" as const,
 };
 
@@ -215,21 +209,13 @@ export const developerConfig = {
 
   // Secondary Description (appears below tagline, smaller text)
   projectInfo:
-    "Aurora del Mar es un proyecto de BDREX, una empresa con más de 30 años de experiencia en el sector de la construcción y desarrollo inmobiliario en República Dominicana.",
+    "Aura del Mar es un proyecto de BDREX, una empresa con más de 30 años de experiencia en el sector de la construcción y desarrollo inmobiliario en República Dominicana.",
 
   // Feature Cards (2 column grid)
   features: [
     {
       icon: "building" as const,
       text: "Más de 3,650 apartamentos entregados con los más altos estándares de calidad",
-    },
-    {
-      icon: "award" as const,
-      text: "30+ años construyendo comunidades y transformando espacios en hogares",
-    },
-    {
-      icon: "sparkles" as const,
-      text: "Innovación constante en diseño arquitectónico y tecnología de construcción",
     },
     {
       icon: "trending" as const,
@@ -243,3 +229,195 @@ export const developerConfig = {
   accentColor: "#F97316", // Orange - highlights and icons
   badgeColor: "#1E3A5F", // Navy blue - header badge
 };
+
+export const amenitiesSliderConfig: AmenitiesSliderConfig = {
+  amenities: [
+    {
+      id: "location",
+      title: "UBICACIÓN",
+      description:
+        "A solo 7 minutos del Aeropuerto Internacional de La Romana, con fácil acceso a las playas de Bayahibe, Isla Catalina e Isla Saona.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
+      icon: "map-pin",
+    },
+    {
+      id: "events",
+      title: "Salones Multiuso",
+      description:
+        "Celebra momentos especiales o reuniones privadas en nuestros espacios diseñados para tu comodidad.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895611/Patio_ADM_Final_11zon_nzjd6u.jpg",
+      icon: "users",
+    },
+    {
+      id: "gym",
+      title: "Gimnasio",
+      description:
+        "Mantén tu estilo de vida activo con nuestro gimnasio completamente equipado con lo último en tecnología fitness.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895612/Gym_ADM_Final_11zon_gitjlf.jpg",
+      icon: "dumbbell",
+    },
+    {
+      id: "pool",
+      title: "Piscina",
+      description:
+        "Disfruta de momentos de relajación en nuestra espectacular piscina con áreas de descanso.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
+      icon: "waves",
+    },
+    {
+      id: "gardens",
+      title: "Áreas Verdes",
+      description:
+        "Espacios naturales diseñados para tu bienestar y el de tu familia, perfectos para caminar y relajarse.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
+      icon: "trees",
+    },
+    {
+      id: "playground",
+      title: "Área Infantil",
+      description:
+        "Zona de juegos segura y moderna donde los más pequeños pueden divertirse y hacer amigos.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895613/Padel_V1_ADM_Final_11zon_l6ribn.jpg",
+      icon: "baby",
+    },
+  ],
+  autoPlay: true,
+  autoPlayInterval: 5000,
+  overlayOpacity: 70,
+  overlayColor: "#183C7C",
+};
+
+export const galleryConfig: GallerySectionConfig = {
+  title: "Descubre la Belleza de Aurora del Mar",
+  subtitle: "Galería",
+  disclaimer:
+    "Las imágenes presentadas son representaciones conceptuales del proyecto. Podrían estar sujetas a modificaciones técnicas y/o estructurales durante el proceso de desarrollo.",
+
+  categories: [
+    { value: "all", label: "Todo" },
+    { value: "exterior", label: "Exterior" },
+    { value: "interior", label: "Interior" },
+    { value: "amenities", label: "Amenidades" },
+  ],
+
+  images: [
+    // Exterior Images
+    {
+      id: "ext-1",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Fachada principal del proyecto Aurora del Mar",
+      category: "exterior",
+    },
+    {
+      id: "ext-2",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Vista panorámica del desarrollo residencial",
+      category: "exterior",
+    },
+    {
+      id: "ext-3",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Áreas comunes exteriores con jardines",
+      category: "exterior",
+    },
+
+    // Interior Images
+    {
+      id: "int-1",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Sala de estar con diseño contemporáneo",
+      category: "interior",
+    },
+    {
+      id: "int-2",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Habitación principal con vista al mar",
+      category: "interior",
+    },
+    {
+      id: "int-3",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Cocina moderna totalmente equipada",
+      category: "interior",
+    },
+    {
+      id: "int-4",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Baño principal con acabados de lujo",
+      category: "interior",
+    },
+
+    // Amenities Images
+    {
+      id: "amen-1",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Piscina infinity con vista espectacular",
+      category: "amenities",
+    },
+    {
+      id: "amen-2",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Gimnasio equipado con tecnología de última generación",
+      category: "amenities",
+    },
+    {
+      id: "amen-3",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Área social y salón de eventos",
+      category: "amenities",
+    },
+    {
+      id: "amen-4",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      alt: "Jardines y áreas verdes del proyecto",
+      category: "amenities",
+    },
+  ],
+};
+
+export const contactConfig: ContactSectionConfig = {
+  showContactInfo: true,
+  contactInfo: {
+    phone: siteConfig.contact.phone,
+    phoneFormatted: siteConfig.contact.phoneFormatted,
+    email: siteConfig.contact.email,
+    address: siteConfig.contact.address.full,
+  },
+  formConfig: {
+    showPhone: true,
+    showDate: true,
+    showTime: true,
+  },
+};
+
+export const heroConfig: HeroSectionConfig = {
+  video: {
+    src: "/videos/hero.mp4",
+    poster: "/images/hero-poster.jpg",
+    overlay: true,
+    overlayOpacity: 65,
+    overlayColor: "#0a1929",
+  },
+  card: {
+    backgroundColor: "#f97316",
+    textColor: "#ffffff",
+  },
+  cta: {
+    whatsapp: {
+      phoneNumber: siteConfig.contact.phone,
+      message: `Hola, estoy interesado en ${siteConfig.name}`,
+    },
+    schedule: {
+      href: "#developer",
+    },
+  },
+  useTranslations: true,
+};
+
+// esta muy bien peroo hay que mejorar la UI lo primero es hacer los botones mas pequenos, loos tiutloos y descripcines un pooco tambien, quitar los dots indicators, quitar el counter de imagenes, tambien hacerlo que no tenga espacios o mas bien margenes que quede pegado de derecha e izquierda el slider y que no tenga esos boordes radius o ovalados.

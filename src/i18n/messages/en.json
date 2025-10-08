@@ -9,6 +9,36 @@
         "explore": "EXPLORE PROPERTY"
       }
     },
+    "amenitiesSlider": {
+      "title": "World-Class Amenities",
+      "subtitle": "Premium Facilities",
+      "amenities": {
+        "location": {
+          "title": "LOCATION",
+          "description": "Just 7 minutes from La Romana International Airport, with easy access to Bayahibe beaches, Catalina Island, and Saona Island."
+        },
+        "events": {
+          "title": "Multi-Purpose Rooms",
+          "description": "Celebrate special moments or private gatherings in our spaces designed for your comfort."
+        },
+        "gym": {
+          "title": "Equipped Gym",
+          "description": "Maintain your active lifestyle with our fully equipped gym featuring the latest fitness technology."
+        },
+        "pool": {
+          "title": "Swimming Pool",
+          "description": "Enjoy relaxing moments in our spectacular pool with lounge areas."
+        },
+        "gardens": {
+          "title": "Green Areas",
+          "description": "Natural spaces designed for your wellbeing and your family's, perfect for walking and relaxing."
+        },
+        "playground": {
+          "title": "Children's Area",
+          "description": "Safe and modern playground where little ones can have fun and make friends."
+        }
+      }
+    },
     "counter": {
       "startsAbout": "Everything starts in",
       "days": "DAYS",
@@ -20,27 +50,6 @@
       "privateGarden": "Private Garden",
       "walkInClosets": "Walk-in Closets",
       "swimmingPool": "Swimming Pool"
-    },
-    "amenities": {
-      "badge": "Amenities",
-      "primeLocation": "Prime Location",
-      "locationDescription": "Located near shops, cafés, and parks, Riviera del Este places you right where you want to be.",
-      "items": {
-        "multiUseCourt": "Multi-purpose Court",
-        "tennisCourt": "Tennis Court",
-        "swimmingPool": "Swimming Pool",
-        "bikePath": "Bike Path",
-        "outdoorGym": "Outdoor Gym",
-        "indoorGym": "Indoor Gym",
-        "linearParks": "Linear Parks",
-        "gardens": "Gardens",
-        "kidsArea": "Children's Play Area",
-        "gazebo": "Gazebo",
-        "viewpoints": "Viewpoints",
-        "shops": "Shops",
-        "church": "Church",
-        "supermarket": "Supermarket"
-      }
     },
     "partners": {
       "title": "Our Partners",
@@ -128,13 +137,18 @@
       }
     },
     "gallery": {
-      "badge": "Gallery",
-      "title": "Discover Every Corner",
-      "description": "Explore our beautiful spaces designed for modern living.",
-      "viewAll": "All",
-      "exterior": "Exterior",
-      "interior": "Interior",
-      "facilities": "Amenities"
+      "title": "Discover the Beauty of Aurora del Mar",
+      "subtitle": "Gallery",
+      "disclaimer": "The images presented are conceptual representations of the project. They could be subject to technical and/or structural modifications during the development process.",
+      "categories": {
+        "all": "All",
+        "exterior": "Exterior",
+        "interior": "Interior",
+        "amenities": "Amenities"
+      },
+      "noResults": "No images available in this category.",
+      "viewImage": "View image",
+      "closeImage": "Close image"
     },
     "overview": {
       "badge": "About the Apartment",

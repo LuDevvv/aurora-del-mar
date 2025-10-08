@@ -21,25 +21,34 @@
       "walkInClosets": "Vestidores",
       "swimmingPool": "Piscina"
     },
-    "amenities": {
-      "badge": "Amenidades",
-      "primeLocation": "Ubicación Privilegiada",
-      "locationDescription": "Ubicado cerca de tiendas, cafeterías y parques, Riviera del Este te coloca justo donde quieres estar.",
-      "items": {
-        "multiUseCourt": "Cancha Multiusos",
-        "tennisCourt": "Cancha de Tenis",
-        "swimmingPool": "Piscina",
-        "bikePath": "Ciclovía",
-        "outdoorGym": "Gimnasios Exteriores",
-        "indoorGym": "Gimnasios Interiores",
-        "linearParks": "Parques Lineales",
-        "gardens": "Jardines",
-        "kidsArea": "Área de Niños",
-        "gazebo": "Gazebo",
-        "viewpoints": "Miradores",
-        "shops": "Distintos Comercios",
-        "church": "Iglesia",
-        "supermarket": "Supermercado"
+    "amenitiesSlider": {
+      "title": "Amenidades de Clase Mundial",
+      "subtitle": "Comodidades Premium",
+      "amenities": {
+        "location": {
+          "title": "UBICACIÓN",
+          "description": "A solo 7 minutos del Aeropuerto Internacional de La Romana, con fácil acceso a las playas de Bayahibe, Isla Catalina e Isla Saona."
+        },
+        "events": {
+          "title": "Salones de Uso Múltiple",
+          "description": "Celebra momentos especiales o reuniones privadas en nuestros espacios diseñados para tu comodidad."
+        },
+        "gym": {
+          "title": "Gimnasio Equipado",
+          "description": "Mantén tu estilo de vida activo con nuestro gimnasio completamente equipado con lo último en tecnología fitness."
+        },
+        "pool": {
+          "title": "Piscina",
+          "description": "Disfruta de momentos de relajación en nuestra espectacular piscina con áreas de descanso."
+        },
+        "gardens": {
+          "title": "Áreas Verdes",
+          "description": "Espacios naturales diseñados para tu bienestar y el de tu familia, perfectos para caminar y relajarse."
+        },
+        "playground": {
+          "title": "Área Infantil",
+          "description": "Zona de juegos segura y moderna donde los más pequeños pueden divertirse y hacer amigos."
+        }
       }
     },
     "partners": {
@@ -128,13 +137,18 @@
       }
     },
     "gallery": {
-      "badge": "Galería",
-      "title": "Descubre cada rincón",
-      "description": "Explora nuestros hermosos espacios diseñados para la vida moderna.",
-      "viewAll": "Todo",
-      "exterior": "Exterior",
-      "interior": "Interior",
-      "facilities": "Amenidades"
+      "title": "Descubre la Belleza de Aurora del Mar",
+      "subtitle": "Galería",
+      "disclaimer": "Las imágenes presentadas son representaciones conceptuales del proyecto. Podrían estar sujetas a modificaciones técnicas y/o estructurales durante el proceso de desarrollo.",
+      "categories": {
+        "all": "Todo",
+        "exterior": "Exterior",
+        "interior": "Interior",
+        "amenities": "Amenidades"
+      },
+      "noResults": "No hay imágenes disponibles en esta categoría.",
+      "viewImage": "Ver imagen",
+      "closeImage": "Cerrar imagen"
     },
     "overview": {
       "badge": "Sobre el Apartamento",

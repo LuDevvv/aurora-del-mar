@@ -33,7 +33,7 @@ export function FilterTabs<T extends string = string>({
 }: FilterTabsProps<T>) {
   const variantClasses = {
     primary: {
-      active: "bg-primary-600 text-white shadow-sm",
+      active: "bg-[#183C7C] text-white shadow-sm",
       inactive: "text-gray-700 hover:bg-gray-50",
     },
     secondary: {
