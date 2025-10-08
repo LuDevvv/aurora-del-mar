@@ -89,9 +89,7 @@ export function HeroSection({ config, className }: HeroSectionProps) {
           config={{
             src: config.video.src,
             poster: config.video.poster,
-            overlay: config.video.overlay ?? true,
-            overlayOpacity: config.video.overlayOpacity ?? 50,
-            overlayColor: config.video.overlayColor ?? "#0a1929",
+            overlay: false,
             autoPlay: true,
             loop: true,
             muted: true,

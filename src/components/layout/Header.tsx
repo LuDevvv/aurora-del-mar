@@ -94,37 +94,24 @@ export function Header({ config, className }: HeaderProps) {
               {/* Language Switcher */}
               <LanguageSwitcher />
 
-              {/* CTA Button - Desktop */}
               {ctaButton && (
                 <button
                   onClick={handleCtaClick}
                   className={cn(
-                    "hidden sm:flex items-center gap-2 rounded-lg transition-all",
+                    "flex items-center gap-2 rounded-lg transition-all",
                     "bg-gradient-to-r from-primary to-primary-dark text-white",
                     "font-semibold shadow-primary-md hover:shadow-primary-lg",
                     "hover:opacity-90 active:scale-98",
                     "px-4 py-2 text-sm md:px-6 md:py-2.5 md:text-base"
                   )}
                 >
-                  <span className="whitespace-nowrap">{ctaButton.label}</span>
+                  <span className="whitespace-nowrap">
+                    <span className="sm:hidden">Más info</span>
+                    <span className="hidden sm:inline">
+                      Solicitar más información
+                    </span>
+                  </span>
                   <ChevronRight size={18} className="flex-shrink-0" />
-                </button>
-              )}
-
-              {/* CTA Button - Mobile (Icon Only) */}
-              {ctaButton && (
-                <button
-                  onClick={handleCtaClick}
-                  className={cn(
-                    "sm:hidden flex items-center justify-center rounded-lg transition-all",
-                    "bg-gradient-to-r from-primary to-primary-dark text-white",
-                    "font-semibold shadow-primary-md hover:shadow-primary-lg",
-                    "hover:opacity-90 active:scale-95",
-                    "w-9 h-9"
-                  )}
-                  aria-label={ctaButton.label}
-                >
-                  <ChevronRight size={18} />
                 </button>
               )}
             </div>

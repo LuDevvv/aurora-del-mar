@@ -17,7 +17,7 @@ export default function LeadModal({
   onClose,
   propertyName = "Aura del Mar",
   price = "US$997,000",
-  whatsappNumber = "+18094200000",
+  whatsappNumber = "+18097779000",
 }: LeadModalProps) {
   useEffect(() => {
     if (isOpen) {

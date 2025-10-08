@@ -67,7 +67,7 @@ const properties: PropertyData[] = [
     features: ["2 Niveles", "Walking Closet", "Duplex", "Balcón"],
     category: "duplex",
     image:
-      "https://res.cloudinary.com/dcuapqoii/image/upload/v1759907004/Screenshot_2025-10-08_030226_opydnw.png",
+      "https://res.cloudinary.com/dcuapqoii/image/upload/v1759964470/f56f9d6d-bb59-4325-b26d-d12d6b6c97e3.png",
   },
   {
     id: "modelo-e",

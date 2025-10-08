@@ -14,9 +14,9 @@ export const siteConfig = {
 
   // Contact Information
   contact: {
-    phone: "+18094200000",
-    phoneFormatted: "+1 (809) 420-0000",
-    email: "setterinvest@auradelmar.com",
+    phone: "+18097779000",
+    phoneFormatted: "+1 (809) 777-9000",
+    email: "Franciaborrome@gmail.com",
     address: {
       line1: "Aura Del Mar",
       line2: "Cap Cana",
@@ -44,7 +44,7 @@ export const siteConfig = {
   },
 };
 
-// Header Configuration - Simplified
+// Header Configuration
 export const headerConfig: HeaderConfig = {
   logo: {
     src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759871646/aurora-del-mar_otgefi.png",
@@ -176,7 +176,7 @@ export const developerConfig = {
     "Nuestra pasión por la calidad y la innovación nos impulsa a crear espacios que",
 
   // Text to highlight in the tagline (will be colored with accentColor)
-  highlightText: "superan las expectativas de nuestros clientes.",
+  highlightText: " superan las expectativas de nuestros clientes.",
 
   // Secondary Description (appears below tagline, smaller text)
   projectInfo:

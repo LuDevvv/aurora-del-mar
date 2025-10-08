@@ -204,7 +204,7 @@ export default async function LocaleLayout({
                 "Residencias de lujo en Santo Domingo Este con amenidades premium",
               url: "https://auradelmar.mussebgroup.com",
               telephone: "+1-809-299-5767",
-              email: "setterinvest@auradelmar.com",
+              email: "Franciaborrome@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Santo Domingo Este",

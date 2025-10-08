@@ -72,7 +72,7 @@ const config: Config = {
         "gradient-primary": "linear-gradient(135deg, #2D8BCB 0%, #183C7C 100%)",
         "gradient-secondary":
           "linear-gradient(135deg, #01D1FC 0%, #409EAB 100%)",
-        "gradient-aurora":
+        "gradient-aura":
           "linear-gradient(135deg, #183C7C 0%, #2D8BCB 40%, #409EAB 70%, #01D1FC 100%)",
       },
       boxShadow: {
