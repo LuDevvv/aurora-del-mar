@@ -36,10 +36,10 @@ export class EmailService {
   async sendContactEmail(data: ContactFormData) {
     try {
       const emailPayload = {
-        from: process.env.EMAIL_FROM || "onboarding@resend.dev",
-        to: process.env.EMAIL_TO!,
+        from: process.env.FROM_EMAIL || "onboarding@resend.dev",
+        to: process.env.TO_EMAIL!,
         replyTo: data.email,
-        subject: `New Contact: ${data.name} - ${data.subject}`,
+        subject: `Nuevo Contacto: ${data.name} - ${data.subject}`,
         html: this.createContactEmailTemplate(data),
       };
 

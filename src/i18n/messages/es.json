@@ -5,7 +5,7 @@
       "headline": "Descubre tu nuevo hogar frente al mar",
       "subheadline": "El lujo a tu alcance",
       "cta": {
-        "schedule": "Agendar Cita",
+        "schedule": "Contactar WhatsApp",
         "explore": "Explorar Propiedad"
       }
     },
@@ -68,8 +68,9 @@
       "penthouse": "Penthouse"
     },
     "contact": {
-      "title": "Contáctanos",
+      "title": "Envíanos un mensaje",
       "subtitle": "Programa una Visita",
+      "contactTitle": "Información y Ventas",
       "description": "Estaremos encantados de atenderte para responder a todas tus preguntas",
       "name": "Nombre Completo",
       "email": "Correo Electrónico",

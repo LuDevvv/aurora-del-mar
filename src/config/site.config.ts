@@ -9,14 +9,14 @@ import { GallerySectionConfig } from "@components/sections/GallerySection";
 export const siteConfig = {
   name: "Aura del Mar",
   description:
-    "Residencias de lujo en Santo Domingo Este con amenidades premium y ubicación privilegiada",
-  url: "https://aurora.casalinainmobiliaria.com",
+    "Residencias de lujo en Cap Cana con amenidades exclusivas y ubicación privilegiada",
+  url: "https://auradelmar.mussebgroup.com",
 
   // Contact Information
   contact: {
-    phone: "+18092995767",
-    phoneFormatted: "+1 (809) 299-5767",
-    email: "info@casalinainmobiliaria.com",
+    phone: "+18094200000",
+    phoneFormatted: "+1 (809) 420-0000",
+    email: "setterinvest@auradelmar.com",
     address: {
       line1: "Aura Del Mar",
       line2: "Cap Cana",
@@ -31,8 +31,7 @@ export const siteConfig = {
 
   // Social Media
   social: {
-    facebook: "https://www.facebook.com/casalinainmobiliaria",
-    instagram: "https://www.instagram.com/casalinasrl/",
+    instagram: "https://www.instagram.com/belkisfabio.broker",
   },
 
   // Brand Colors
@@ -43,32 +42,6 @@ export const siteConfig = {
     accent: "#ea580c",
     whatsapp: "#25D366",
   },
-
-  // Developer Information
-  developer: {
-    name: "Casalina Inmobiliaria SRL",
-    description:
-      "Con más de una década de experiencia en el mercado inmobiliario dominicano, Casalina Inmobiliaria se ha consolidado como líder en desarrollo de proyectos residenciales de alta calidad.",
-    logo: "/casalina-logo.png",
-  },
-
-  // Project Stats
-  stats: {
-    units: "150+",
-    amenities: "15+",
-    greenAreas: "5000+",
-    security: "24/7",
-  },
-
-  // Navigation
-  navigation: [
-    { label: "Descripción", href: "overview" },
-    { label: "Amenidades", href: "amenities" },
-    { label: "Unidades", href: "units" },
-    { label: "Galería", href: "gallery" },
-    { label: "Ubicación", href: "location" },
-    { label: "Contacto", href: "contact" },
-  ],
 };
 
 // Header Configuration - Simplified
@@ -86,7 +59,6 @@ export const headerConfig: HeaderConfig = {
     href: "#contact",
     onClick: (e) => {
       e.preventDefault();
-      // scrollToSection("contact");
     },
   },
   maxWidth: "1400px",
@@ -118,7 +90,6 @@ export const footerConfig = {
   },
   description: siteConfig.description,
   socialLinks: [
-    { platform: "facebook" as const, url: siteConfig.social.facebook },
     { platform: "instagram" as const, url: siteConfig.social.instagram },
   ],
   contactInfo: {
@@ -398,8 +369,9 @@ export const contactConfig: ContactSectionConfig = {
 
 export const heroConfig: HeroSectionConfig = {
   video: {
-    src: "/videos/hero.mp4",
-    poster: "/images/hero-poster.jpg",
+    src: "https://res.cloudinary.com/dcuapqoii/video/upload/v1759888170/VideoPrincipal_tnpcng.mp4",
+    poster:
+      "https://res.cloudinary.com/dcuapqoii/image/upload/v1759910029/Screenshot_2025-10-08_035326_qqz1kd.png",
     overlay: true,
     overlayOpacity: 65,
     overlayColor: "#0a1929",
@@ -414,10 +386,8 @@ export const heroConfig: HeroSectionConfig = {
       message: `Hola, estoy interesado en ${siteConfig.name}`,
     },
     schedule: {
-      href: "#developer",
+      href: "#contact",
     },
   },
   useTranslations: true,
 };
-
-// esta muy bien peroo hay que mejorar la UI lo primero es hacer los botones mas pequenos, loos tiutloos y descripcines un pooco tambien, quitar los dots indicators, quitar el counter de imagenes, tambien hacerlo que no tenga espacios o mas bien margenes que quede pegado de derecha e izquierda el slider y que no tenga esos boordes radius o ovalados.

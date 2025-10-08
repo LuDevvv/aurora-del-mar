@@ -25,7 +25,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aurora.casalinainmobiliaria.com"),
+  metadataBase: new URL("https://auradelmar.mussebgroup.com"),
   title: {
     default: "Aura del Mar - Residencias de Lujo en Santo Domingo Este",
     template: "%s | Aura del Mar",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_DO",
     alternateLocale: ["en_US"],
-    url: "https://aurora.casalinainmobiliaria.com",
+    url: "https://auradelmar.mussebgroup.com",
     siteName: "Aura del Mar",
     title: "Aura del Mar - Residencias de Lujo en Santo Domingo Este",
     description:
@@ -202,9 +202,9 @@ export default async function LocaleLayout({
               image: "/images/og-image.png",
               description:
                 "Residencias de lujo en Santo Domingo Este con amenidades premium",
-              url: "https://aurora.casalinainmobiliaria.com",
+              url: "https://auradelmar.mussebgroup.com",
               telephone: "+1-809-299-5767",
-              email: "info@casalinainmobiliaria.com",
+              email: "setterinvest@auradelmar.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Santo Domingo Este",

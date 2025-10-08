@@ -174,7 +174,7 @@ export function ContactSection({ config, className }: ContactSectionProps) {
           >
             <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border border-gray-100">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                {t("formTitle") || "Send us a message"}
+                {t("title") || "Send us a message"}
               </h3>
 
               <ContactForm

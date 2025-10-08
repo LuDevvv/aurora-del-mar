@@ -90,8 +90,8 @@ export function ContactForm({ config, className }: ContactFormProps) {
       name: "",
       email: "",
       phone: "",
-      subject: "",
-      message: "",
+      subject: "Consulta desde formulario de contacto",
+      message: "Sin mensaje adicional",
     },
   });
 
@@ -109,8 +109,6 @@ export function ContactForm({ config, className }: ContactFormProps) {
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
-
-    console.log({ data });
 
     try {
       const response = await fetch(finalConfig.apiEndpoint!, {
@@ -237,8 +235,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
         </div>
       )}
 
-      {/* Message Textarea */}
-
+      {/* Message Textarea (Optional) */}
       {finalConfig.showTextArea && (
         <div className="mb-6">
           <Textarea

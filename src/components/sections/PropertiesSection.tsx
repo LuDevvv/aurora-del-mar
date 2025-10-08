@@ -121,13 +121,7 @@ export default function PropertiesSection() {
 
   return (
     <section id="properties" className="relative">
-      <LeadModal
-        isOpen={isOpen}
-        onClose={closeModal}
-        propertyName="Aura del Mar"
-        price="US$997,000"
-        whatsappNumber="+18092995767"
-      />
+      <LeadModal isOpen={isOpen} onClose={closeModal} />
 
       {/* Header with Blue Background */}
       <div className="bg-gradient-to-b from-primary-dark to-primary py-16 md:py-20">

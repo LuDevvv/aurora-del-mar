@@ -1,4 +1,3 @@
-// src/lib/validations.ts
 import { z } from "zod";
 
 // Contact form validation schema
@@ -31,15 +30,9 @@ export const contactFormSchema = z.object({
       "Phone number must be at least 10 digits"
     ),
 
-  subject: z
-    .string()
-    .min(5, "Subject must be at least 5 characters")
-    .max(100, "Subject must be less than 100 characters"),
-
-  message: z
-    .string()
-    .min(10, "Message must be at least 10 characters")
-    .max(1000, "Message must be less than 1000 characters"),
+  // 🔥 Hazlos obligatorios
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(1, "Message is required"),
 
   date: z
     .string()

@@ -148,7 +148,7 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
           )}
 
           {/* Features Grid */}
-          {features && features.length > 0 && (
+          {/* {features && features.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
               {features.map((feature, index) => {
                 const Icon = iconMap[feature.icon];
@@ -181,7 +181,7 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
                 );
               })}
             </div>
-          )}
+          )} */}
 
           {/* Decorative Elements */}
           <div

@@ -68,8 +68,9 @@
       "penthouse": "Penthouse"
     },
     "contact": {
-      "title": "Contact Us",
+      "title": "Send us a message",
       "subtitle": "Schedule a Visit",
+      "contactTitle": "Information and Sales",
       "description": "We'll be happy to assist you with any questions you might have",
       "name": "Full Name",
       "email": "Email",

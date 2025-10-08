@@ -191,7 +191,7 @@ function StatItem({
       )}
     >
       {/* Icon */}
-      {Icon && (
+      {/* {Icon && (
         <div
           className="flex justify-center mb-4"
           style={{
@@ -216,7 +216,7 @@ function StatItem({
             />
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Value */}
       <div

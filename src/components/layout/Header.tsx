@@ -69,13 +69,7 @@ export function Header({ config, className }: HeaderProps) {
         className
       )}
     >
-      <LeadModal
-        isOpen={isOpen}
-        onClose={closeModal}
-        propertyName="Aura del Mar"
-        price="US$997,000"
-        whatsappNumber="+18092995767"
-      />
+      <LeadModal isOpen={isOpen} onClose={closeModal} />
 
       <div className="py-3 md:py-4">
         <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth }}>

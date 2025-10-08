@@ -219,7 +219,7 @@ export function Footer({ config, className }: FooterProps) {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors group"
             >
-              <span>Powered by Casalina Inmobiliaria</span>
+              <span>Powered by Aura Del Mar</span>
               <ExternalLink
                 size={14}
                 className="group-hover:translate-x-0.5 transition-transform"

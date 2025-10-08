@@ -17,16 +17,8 @@ export default function LeadModal({
   onClose,
   propertyName = "Aura del Mar",
   price = "US$997,000",
-  whatsappNumber = "+18092995767",
+  whatsappNumber = "+18094200000",
 }: LeadModalProps) {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -48,19 +40,6 @@ export default function LeadModal({
       `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${message}`,
       "_blank"
     );
-  };
-
-  const handleSubmit = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    console.log("Form submitted:", formData);
-    setIsSubmitting(false);
-    onClose();
-
-    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
