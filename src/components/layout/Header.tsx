@@ -7,6 +7,7 @@ import { MessageCircle, ChevronRight } from "lucide-react";
 import { cn } from "@lib/utils";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@components/ui/LanguageSwitcher";
+import LeadModal, { useLeadModal } from "@components/ui/LeadModal";
 
 export interface HeaderConfig {
   logo: {
@@ -33,6 +34,7 @@ interface HeaderProps {
 export function Header({ config, className }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const t = useTranslations("common");
+  const { isOpen, openModal, closeModal } = useLeadModal();
 
   const { logo, whatsappNumber, ctaButton, maxWidth = "1400px" } = config;
 
@@ -55,6 +57,7 @@ export function Header({ config, className }: HeaderProps) {
   const handleCtaClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (ctaButton?.onClick) {
       ctaButton.onClick(e);
+      openModal();
     }
   };
 
@@ -66,6 +69,14 @@ export function Header({ config, className }: HeaderProps) {
         className
       )}
     >
+      <LeadModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        propertyName="Aura del Mar"
+        price="US$997,000"
+        whatsappNumber="+18092995767"
+      />
+
       <div className="py-3 md:py-4">
         <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth }}>
           <div className="flex items-center justify-between gap-3 sm:gap-4">

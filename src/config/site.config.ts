@@ -294,7 +294,7 @@ export const amenitiesSliderConfig: AmenitiesSliderConfig = {
 };
 
 export const galleryConfig: GallerySectionConfig = {
-  title: "Descubre la Belleza de Aurora del Mar",
+  title: "Descubre la Belleza de Aura del Mar",
   subtitle: "Galería",
   disclaimer:
     "Las imágenes presentadas son representaciones conceptuales del proyecto. Podrían estar sujetas a modificaciones técnicas y/o estructurales durante el proceso de desarrollo.",
@@ -311,7 +311,7 @@ export const galleryConfig: GallerySectionConfig = {
     {
       id: "ext-1",
       src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
-      alt: "Fachada principal del proyecto Aurora del Mar",
+      alt: "Fachada principal del proyecto Aura del Mar",
       category: "exterior",
     },
     {

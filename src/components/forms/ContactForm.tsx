@@ -15,6 +15,7 @@ export interface ContactFormConfig {
   showPhone?: boolean;
   showDate?: boolean;
   showTime?: boolean;
+  showTextArea?: boolean;
   showSubject?: boolean;
   submitButtonText?: string;
   successMessage?: string;
@@ -49,6 +50,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
     showPhone: false,
     showDate: false,
     showTime: false,
+    showTextArea: false,
     showSubject: true,
     submitButtonText: "Send Message",
     successMessage: "Message sent successfully! We'll get back to you soon.",
@@ -107,6 +109,8 @@ export function ContactForm({ config, className }: ContactFormProps) {
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
+
+    console.log({ data });
 
     try {
       const response = await fetch(finalConfig.apiEndpoint!, {
@@ -234,17 +238,20 @@ export function ContactForm({ config, className }: ContactFormProps) {
       )}
 
       {/* Message Textarea */}
-      <div className="mb-6">
-        <Textarea
-          {...register("message")}
-          label="Message"
-          placeholder={finalConfig.placeholders?.message}
-          icon={<MessageSquare size={18} />}
-          error={errors.message?.message}
-          rows={5}
-          fullWidth
-        />
-      </div>
+
+      {finalConfig.showTextArea && (
+        <div className="mb-6">
+          <Textarea
+            {...register("message")}
+            label="Message"
+            placeholder={finalConfig.placeholders?.message}
+            icon={<MessageSquare size={18} />}
+            error={errors.message?.message}
+            rows={5}
+            fullWidth
+          />
+        </div>
+      )}
 
       {/* Submit Button */}
       <div className="flex flex-col items-start gap-4">

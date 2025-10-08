@@ -179,18 +179,19 @@ export function ContactSection({ config, className }: ContactSectionProps) {
 
               <ContactForm
                 config={{
-                  showPhone: finalConfig.formConfig?.showPhone,
+                  showPhone: true,
+                  showDate: false,
+                  showTime: false,
                   showSubject: false,
-                  submitButtonText:
-                    finalConfig.formConfig?.submitButtonText || t("submit"),
-                  successMessage:
-                    finalConfig.formConfig?.successMessage || t("success"),
-                  errorMessage:
-                    finalConfig.formConfig?.errorMessage || t("error"),
-                  placeholders: finalConfig.formConfig?.placeholders || {
+                  showTextArea: false,
+                  submitButtonText: t("submit"),
+                  successMessage: t("success"),
+                  errorMessage: t("error"),
+                  placeholders: {
                     name: t("name"),
                     email: t("email"),
                     phone: t("phone"),
+                    message: t("message"),
                   },
                   apiEndpoint: "/api/contact",
                 }}

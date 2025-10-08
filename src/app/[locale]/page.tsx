@@ -17,6 +17,7 @@ import { ContactSection } from "@components/sections/ContactSection";
 import { HeroSection } from "@components/sections/HeroSection";
 import { AmenitiesSlider } from "@components/sections/AmenitiesSlider";
 import { GallerySection } from "@components/sections/GallerySection";
+import PropertiesSection from "@components/sections/PropertiesSection";
 
 export default function Home() {
   return (
@@ -29,6 +30,8 @@ export default function Home() {
       />
 
       <GallerySection config={galleryConfig} />
+
+      <PropertiesSection />
 
       <LocationMap
         title="Ubicación privilegiada"
