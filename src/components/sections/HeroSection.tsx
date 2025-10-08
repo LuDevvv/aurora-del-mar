@@ -81,7 +81,7 @@ export function HeroSection({ config, className }: HeroSectionProps) {
   return (
     <section
       id="hero"
-      className={cn("relative flex flex-col mb-48", className)}
+      className={cn("relative flex flex-col mb-68", className)}
     >
       {/* Video Background Container - Uses flex-1 to take available space */}
       <div className="relative flex-1">
@@ -107,7 +107,7 @@ export function HeroSection({ config, className }: HeroSectionProps) {
       </div>
 
       {/* Orange Card Container - Properly positioned with negative margin */}
-      <div className="absolute z-20 bottom-[-85px] left-1/2 -translate-x-1/2 translate-y-1/3 w-full px-4">
+      <div className="absolute z-20 bottom-[-160px] left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Centered Card Wrapper */}
           <div className="flex justify-center">
