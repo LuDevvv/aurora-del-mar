@@ -213,12 +213,11 @@ export const amenitiesSliderConfig: AmenitiesSliderConfig = {
       icon: "users",
     },
     {
-      id: "padel-park",
-      title: "Parque Padel Multideporte",
-      description:
-        "Disfruta y vive la comodidad dentro de Cap Cana con nuestras instalaciones deportivas de primer nivel.",
+      id: "golf-parking",
+      title: "Parqueo para Carros de Golf",
+      description: "Movilidad y comodidad dentro de Cap Cana",
       image:
-        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895613/Padel_V1_ADM_Final_11zon_l6ribn.jpg",
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759953844/golf-2571826_640_cldkcp.png",
       icon: "trophy",
     },
     {
