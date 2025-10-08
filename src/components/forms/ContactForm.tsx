@@ -17,6 +17,7 @@ export interface ContactFormConfig {
   showTime?: boolean;
   showTextArea?: boolean;
   showSubject?: boolean;
+  labelColor?: boolean;
   submitButtonText?: string;
   successMessage?: string;
   errorMessage?: string;
@@ -52,6 +53,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
     showTime: false,
     showTextArea: false,
     showSubject: true,
+    labelColor: false,
     submitButtonText: "Send Message",
     successMessage: "Message sent successfully! We'll get back to you soon.",
     errorMessage: "Failed to send message. Please try again.",
@@ -159,6 +161,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
           icon={<User size={18} />}
           error={errors.name?.message}
           fullWidth
+          isLabelWhite={true}
         />
 
         {/* Email Input */}
@@ -170,6 +173,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
           icon={<Mail size={18} />}
           error={errors.email?.message}
           fullWidth
+          isLabelWhite={true}
         />
       </div>
 
@@ -184,6 +188,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
             icon={<Phone size={18} />}
             error={errors.phone?.message}
             fullWidth
+            isLabelWhite={true}
           />
         </div>
       )}
@@ -231,6 +236,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
             placeholder={finalConfig.placeholders?.subject}
             error={errors.subject?.message}
             fullWidth
+            isLabelWhite={finalConfig.labelColor}
           />
         </div>
       )}

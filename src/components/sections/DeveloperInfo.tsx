@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Building2, Award, Sparkles, TrendingUp } from "lucide-react";
-import { cn } from "@lib/utils";
 import { AnimatedSection } from "@components/ui/AnimatedSection";
 
 export interface DeveloperConfig {
@@ -41,6 +40,110 @@ const iconMap = {
   trending: TrendingUp,
 };
 
+// Component for animated counter
+function AnimatedNumber({
+  value,
+  accentColor,
+}: {
+  value: number;
+  accentColor: string;
+}) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const duration = 2000;
+    const steps = 60;
+    const increment = value / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [isVisible, value]);
+
+  return (
+    <span
+      ref={ref}
+      className="font-bold text-xl"
+      style={{ color: accentColor }}
+    >
+      {count.toLocaleString()}
+    </span>
+  );
+}
+
+// Function to parse text and highlight numbers
+function HighlightedText({
+  text,
+  accentColor,
+}: {
+  text: string;
+  accentColor: string;
+}) {
+  const parts = text.split(/(\d{1,3}(?:,\d{3})*(?:\+)?)/g);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        // Check if it's a number
+        const numberMatch = part.match(/^(\d{1,3}(?:,\d{3})*)(\+)?$/);
+        if (numberMatch) {
+          const numericValue = parseInt(numberMatch[1].replace(/,/g, ""));
+          const suffix = numberMatch[2] || "";
+
+          return (
+            <span key={index}>
+              <AnimatedNumber value={numericValue} accentColor={accentColor} />
+              {suffix && (
+                <span
+                  className="font-bold text-xl"
+                  style={{ color: accentColor }}
+                >
+                  {suffix}
+                </span>
+              )}
+            </span>
+          );
+        }
+        return <span key={index}>{part}</span>;
+      })}
+    </>
+  );
+}
+
 export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
   const {
     badge = "DESARROLLADOR Y CONSTRUCTOR",
@@ -57,7 +160,6 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
     badgeColor = "#1E3A5F",
   } = config;
 
-  // Split description to highlight specific text
   const getFormattedDescription = () => {
     const textToFormat = tagline || description || "";
     if (!highlightText || !textToFormat) return textToFormat;
@@ -80,7 +182,6 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
         className="rounded-3xl overflow-hidden shadow-xl"
         style={{ backgroundColor }}
       >
-        {/* Badge Header */}
         <AnimatedSection animation="slideUp" duration={700}>
           <div
             className="py-6 md:py-8 px-6 text-center"
@@ -92,14 +193,12 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
           </div>
         </AnimatedSection>
 
-        {/* Content Container */}
-        <div className="p-8 md:p-12 lg:p-16">
-          {/* Logo Section */}
+        <div className="p-6 md:p-10 lg:p-14">
           <AnimatedSection
             animation="scaleIn"
             duration={700}
             delay={200}
-            className="flex justify-center mb-8 md:mb-10"
+            className="flex justify-center mb-4 md:mb-6"
           >
             <div className="relative">
               <Image
@@ -113,7 +212,6 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
             </div>
           </AnimatedSection>
 
-          {/* Tagline with Highlight */}
           {(tagline || description) && (
             <AnimatedSection
               animation="slideUp"
@@ -130,13 +228,12 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
             </AnimatedSection>
           )}
 
-          {/* Main Description */}
           {projectInfo && (
             <AnimatedSection
               animation="fadeIn"
               duration={700}
               delay={400}
-              className="text-center mb-10 md:mb-12"
+              className="text-center mb-6 md:mb-8"
             >
               <p
                 className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto"
@@ -147,9 +244,8 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
             </AnimatedSection>
           )}
 
-          {/* Features Grid */}
-          {/* {features && features.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          {features && features.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
               {features.map((feature, index) => {
                 const Icon = iconMap[feature.icon];
                 return (
@@ -174,16 +270,18 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
                         className="text-sm md:text-base leading-relaxed pt-1"
                         style={{ color: textColor }}
                       >
-                        {feature.text}
+                        <HighlightedText
+                          text={feature.text}
+                          accentColor={accentColor}
+                        />
                       </p>
                     </div>
                   </AnimatedSection>
                 );
               })}
             </div>
-          )} */}
+          )}
 
-          {/* Decorative Elements */}
           <div
             className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-5 blur-2xl"
             style={{ backgroundColor: accentColor }}

@@ -21,7 +21,7 @@ export default function LandingPageLayout({
   return (
     <div className="min-h-screen bg-white">
       <Header config={headerConfig} />
-      <main className="relative pt-20 md:pt-24">{children}</main>
+      <main className="relative pt-14 md:pt-24">{children}</main>
       <Footer config={footerConfig} />
       <WhatsAppButton config={whatsappConfig} />
     </div>

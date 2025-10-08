@@ -1,7 +1,6 @@
 import React from "react";
 import LandingPageLayout from "@components/landing/LandingPageLayout";
 import { LocationMap } from "@components/sections/LocationMap";
-import { StatsSection } from "@components/sections/StatsSection";
 import {
   amenitiesSliderConfig,
   contactConfig,
@@ -9,8 +8,6 @@ import {
   galleryConfig,
   heroConfig,
   locationConfig,
-  siteConfig,
-  statsConfig,
 } from "@config/site.config";
 import { DeveloperSection } from "@components/sections/DeveloperSection";
 import { ContactSection } from "@components/sections/ContactSection";
@@ -46,11 +43,6 @@ export default function Home() {
         config={developerConfig}
         sectionTitle="Nuestro Desarrollador"
         sectionSubtitle="Experiencia y Compromiso"
-      />
-      <StatsSection
-        title={`${siteConfig.name} en Números`}
-        subtitle="Excelencia en cada detalle"
-        config={statsConfig}
       />
       <ContactSection config={contactConfig} />
     </LandingPageLayout>

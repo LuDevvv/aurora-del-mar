@@ -81,9 +81,9 @@ export const whatsappConfig: WhatsAppButtonConfig = {
 };
 
 // Footer Configuration
-export const footerConfig = {
+export const footerConfig: FooterConfig = {
   logo: {
-    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759871646/aurora-del-mar_otgefi.png",
+    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759944409/blanco2_b5ogt7.png",
     alt: siteConfig.name,
     width: 240,
     height: 70,
@@ -204,58 +204,58 @@ export const developerConfig = {
 export const amenitiesSliderConfig: AmenitiesSliderConfig = {
   amenities: [
     {
-      id: "location",
-      title: "UBICACIÓN",
-      description:
-        "A solo 7 minutos del Aeropuerto Internacional de La Romana, con fácil acceso a las playas de Bayahibe, Isla Catalina e Isla Saona.",
-      image:
-        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
-      icon: "map-pin",
-    },
-    {
       id: "events",
       title: "Salones Multiuso",
       description:
-        "Celebra momentos especiales o reuniones privadas en nuestros espacios diseñados para tu comodidad.",
+        "Celebra momentos especiales o reuniones privadas en espacios diseñados para tu comodidad y exclusividad.",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895611/Patio_ADM_Final_11zon_nzjd6u.jpg",
       icon: "users",
     },
     {
-      id: "gym",
-      title: "Gimnasio",
+      id: "padel-park",
+      title: "Parque Padel Multideporte",
       description:
-        "Mantén tu estilo de vida activo con nuestro gimnasio completamente equipado con lo último en tecnología fitness.",
+        "Disfruta y vive la comodidad dentro de Cap Cana con nuestras instalaciones deportivas de primer nivel.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895613/Padel_V1_ADM_Final_11zon_l6ribn.jpg",
+      icon: "trophy",
+    },
+    {
+      id: "solarium",
+      title: "Terraza Solarium con Piscinas",
+      description:
+        "Relájate y disfruta de vistas panorámicas en nuestra exclusiva terraza Solarium con zonas de descanso.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952883/Artboard_7_w7qec7.png",
+      icon: "sun",
+    },
+    {
+      id: "jacuzzi",
+      title: "Jacuzzis y Piscina de Nado y Recreativa",
+      description:
+        "Sumérgete en un oasis de tranquilidad y bienestar con nuestras piscinas y jacuzzis exclusivos.",
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952863/Artboard_11_u0st6q.png",
+      icon: "waves",
+    },
+    {
+      id: "gym",
+      title: "Gimnasio Equipado",
+      description:
+        "Mantente activo y saludable con equipos de última generación en nuestro moderno gimnasio.",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895612/Gym_ADM_Final_11zon_gitjlf.jpg",
       icon: "dumbbell",
     },
     {
-      id: "pool",
-      title: "Piscina",
+      id: "padel-court",
+      title: "Cancha de Padel Multideporte",
       description:
-        "Disfruta de momentos de relajación en nuestra espectacular piscina con áreas de descanso.",
+        "Disfruta de tu deporte favorito en un entorno privilegiado dentro de nuestras instalaciones.",
       image:
-        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
-      icon: "waves",
-    },
-    {
-      id: "gardens",
-      title: "Áreas Verdes",
-      description:
-        "Espacios naturales diseñados para tu bienestar y el de tu familia, perfectos para caminar y relajarse.",
-      image:
-        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
-      icon: "trees",
-    },
-    {
-      id: "playground",
-      title: "Área Infantil",
-      description:
-        "Zona de juegos segura y moderna donde los más pequeños pueden divertirse y hacer amigos.",
-      image:
-        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895613/Padel_V1_ADM_Final_11zon_l6ribn.jpg",
-      icon: "baby",
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952809/Artboard_8_tbqsti.png",
+      icon: "flag",
     },
   ],
   autoPlay: true,
@@ -281,19 +281,37 @@ export const galleryConfig: GallerySectionConfig = {
     // Exterior Images
     {
       id: "ext-1",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948474/Artboard_16_ok4xfi.png",
       alt: "Fachada principal del proyecto Aura del Mar",
       category: "exterior",
     },
     {
       id: "ext-2",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948472/Artboard_15_ff3tou.png",
       alt: "Vista panorámica del desarrollo residencial",
       category: "exterior",
     },
     {
       id: "ext-3",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948472/Artboard_11_c7gt4m.png",
+      alt: "Áreas comunes exteriores con jardines",
+      category: "exterior",
+    },
+    {
+      id: "ext-4",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948468/Artboard_7_gg1k8d.png",
+      alt: "Fachada principal del proyecto Aura del Mar",
+      category: "exterior",
+    },
+    {
+      id: "ext-5",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948465/Artboard_17_conjfa.png",
+      alt: "Vista panorámica del desarrollo residencial",
+      category: "exterior",
+    },
+    {
+      id: "ext-6",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948464/Artboard_18_t61yxt.png",
       alt: "Áreas comunes exteriores con jardines",
       category: "exterior",
     },
@@ -301,25 +319,49 @@ export const galleryConfig: GallerySectionConfig = {
     // Interior Images
     {
       id: "int-1",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948474/Artboard_14_ru4g3t.png",
       alt: "Sala de estar con diseño contemporáneo",
       category: "interior",
     },
     {
       id: "int-2",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948471/Artboard_2_yqidqs.png",
       alt: "Habitación principal con vista al mar",
       category: "interior",
     },
     {
       id: "int-3",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948471/Artboard_10_lsetgs.png",
       alt: "Cocina moderna totalmente equipada",
       category: "interior",
     },
     {
       id: "int-4",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948471/Artboard_3_b6wggg.png",
+      alt: "Baño principal con acabados de lujo",
+      category: "interior",
+    },
+    {
+      id: "int-5",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948471/Artboard_12_qesscu.png",
+      alt: "Baño principal con acabados de lujo",
+      category: "interior",
+    },
+    {
+      id: "int-6",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948469/Artboard_9_ef4u1v.png",
+      alt: "Baño principal con acabados de lujo",
+      category: "interior",
+    },
+    {
+      id: "int-7",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948468/Artboard_6_dqfq4i.png",
+      alt: "Baño principal con acabados de lujo",
+      category: "interior",
+    },
+    {
+      id: "int-8",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759948466/Artboard_5_mdj3xh.png",
       alt: "Baño principal con acabados de lujo",
       category: "interior",
     },
@@ -327,25 +369,37 @@ export const galleryConfig: GallerySectionConfig = {
     // Amenities Images
     {
       id: "amen-1",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895611/Patio_ADM_Final_11zon_nzjd6u.jpg",
       alt: "Piscina infinity con vista espectacular",
       category: "amenities",
     },
     {
       id: "amen-2",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895613/Padel_V1_ADM_Final_11zon_l6ribn.jpg",
       alt: "Gimnasio equipado con tecnología de última generación",
       category: "amenities",
     },
     {
       id: "amen-3",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952883/Artboard_7_w7qec7.png",
       alt: "Área social y salón de eventos",
       category: "amenities",
     },
     {
       id: "amen-4",
-      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759896008/Terraza_Mar_Final_11zon_evd6no.jpg",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952863/Artboard_11_u0st6q.png",
+      alt: "Jardines y áreas verdes del proyecto",
+      category: "amenities",
+    },
+    {
+      id: "amen-5",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895612/Gym_ADM_Final_11zon_gitjlf.jpg",
+      alt: "Jardines y áreas verdes del proyecto",
+      category: "amenities",
+    },
+    {
+      id: "amen-6",
+      src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952809/Artboard_8_tbqsti.png",
       alt: "Jardines y áreas verdes del proyecto",
       category: "amenities",
     },

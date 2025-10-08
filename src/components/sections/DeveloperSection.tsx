@@ -27,10 +27,13 @@ export function DeveloperSection({
           <AnimatedSection animation="slideUp" duration={700}>
             <div className="text-center mb-8 md:mb-12">
               {sectionSubtitle && (
-                <p className="text-primary-600 font-semibold mb-2 text-sm md:text-base uppercase tracking-wider">
-                  {sectionSubtitle}
-                </p>
+                <div className="inline-block mb-4">
+                  <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold text-sm md:text-base uppercase tracking-wider">
+                    {sectionSubtitle}
+                  </span>
+                </div>
               )}
+
               {sectionTitle && (
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                   {sectionTitle}

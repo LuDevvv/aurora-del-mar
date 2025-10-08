@@ -67,8 +67,8 @@ export function LocationMap({
         {(badge || title) && (
           <div className="text-center mb-8 md:mb-12">
             {badge && (
-              <div className="flex justify-center mb-4">
-                <span className="bg-gray-100 text-gray-800 px-6 py-2 rounded-full text-sm font-semibold">
+              <div className="inline-block mb-4">
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold text-sm md:text-base uppercase tracking-wider">
                   {badge}
                 </span>
               </div>
@@ -165,7 +165,7 @@ function LocationCard({
 
         <div className="flex items-start mb-4">
           <MapPin
-            className="text-primary-600 mr-2 flex-shrink-0 mt-0.5"
+            className="text-primary mr-2 flex-shrink-0 mt-0.5"
             size={18}
           />
           <div>
@@ -189,7 +189,7 @@ function LocationCard({
             href={googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-primary-600 hover:text-primary-700 text-sm font-medium transition-colors ml-auto"
+            className="flex items-center text-primary text-sm font-medium transition-colors ml-auto"
           >
             Open in Maps
             <ExternalLink size={14} className="ml-1" />

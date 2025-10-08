@@ -191,81 +191,79 @@ function PropertyCard({
 }) {
   return (
     <AnimatedSection animation="slideUp" duration={700} delay={delay}>
-      <div className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[420px]">
+      <div className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
         {/* Background Image */}
-        <img
-          src={property.image}
-          alt={property.model}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <div className="relative h-[300px] md:h-[350px]">
+          <img
+            src={property.image}
+            alt={property.model}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
+          {/* Limited Badge */}
+          {property.limited && (
+            <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+              Pocas Unidades
+            </div>
+          )}
+        </div>
 
-        {/* Limited Badge */}
-        {property.limited && (
-          <div className="absolute top-4 right-4 bg-red-500/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg z-10">
-            Pocas Unidades
-          </div>
-        )}
-
-        {/* Content Overlay */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-end">
+        {/* Info Section with Dark Overlay */}
+        <div className="bg-gradient-to-b from-primary-dark to-primary p-6">
           {/* Model Name */}
-          <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">
+          <h3 className="text-3xl font-bold text-white mb-4">
             {property.model}
           </h3>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-3 gap-2 mb-2">
-            <div className="bg-white/20 backdrop-blur-md rounded-xl p-2 text-center">
-              <Bed size={20} className="text-white mx-auto" />
-              <p className="text-white text-sm font-medium">
-                {property.bedrooms} Hab
-              </p>
-            </div>
-            <div className="bg-white/20 backdrop-blur-md rounded-xl p-2 text-center">
-              <Bath size={20} className="text-white mx-auto" />
-              <p className="text-white text-sm font-medium">
-                {property.bathrooms} Baños
-              </p>
-            </div>
-            <div className="bg-white/20 backdrop-blur-md rounded-xl p-2 text-center">
-              <Maximize size={20} className="text-white mx-auto" />
-              <p className="text-white text-sm font-medium">
-                {property.area}m²
-              </p>
-            </div>
-          </div>
-
-          {/* Features - Top 2 */}
-          <div className="mb-4 space-y-1.5">
-            {property.features.slice(0, 2).map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4 text-white flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-white/90 text-sm font-medium">
-                  {feature}
+          {/* Two Column Grid: Stats + Features */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2 mb-6">
+            {/* Left Column - Stats */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Bed size={18} className="text-white" />
+                <span className="text-white text-sm">
+                  {property.bedrooms} Habitaciones
                 </span>
               </div>
-            ))}
+              <div className="flex items-center gap-2">
+                <Bath size={18} className="text-white" />
+                <span className="text-white text-sm">
+                  {property.bathrooms} Baños
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Maximize size={18} className="text-white" />
+                <span className="text-white text-sm">{property.area}m²</span>
+              </div>
+            </div>
+
+            {/* Right Column - Features */}
+            <div className="space-y-2">
+              {property.features.slice(0, 3).map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4 text-white flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-white text-sm">{feature}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* CTA Button */}
           <button
             onClick={openModal}
-            className="w-full bg-white/95 hover:bg-white text-gray-900 py-3 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 backdrop-blur-sm"
+            className="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-xl font-semibold transition-all duration-200"
           >
-            <span>Conoce el proyecto</span>
+            Reserva Ahora
           </button>
         </div>
       </div>

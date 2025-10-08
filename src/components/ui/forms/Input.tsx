@@ -9,6 +9,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   helperText?: string;
   icon?: React.ReactNode;
   fullWidth?: boolean;
+  isLabelWhite?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -21,6 +22,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       icon,
       fullWidth = false,
       id,
+      isLabelWhite,
       ...props
     },
     ref
@@ -32,7 +34,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="text-sm font-medium text-gray-700"
+            className={cn(
+              "text-sm font-medium",
+              isLabelWhite ? "text-white" : "text-gray-700"
+            )}
           >
             {label}
           </label>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, MessageCircle, Sparkles } from "lucide-react";
+import { X, MessageCircle, Sparkles, CalendarDays } from "lucide-react";
 import { ContactForm } from "@components/forms/ContactForm";
 
 interface LeadModalProps {
@@ -42,6 +42,13 @@ export default function LeadModal({
     );
   };
 
+  const handleCalendly = () => {
+    window.open(
+      `https://calendly.com/itsyoshuaa-1/30min?month=2025-10`,
+      "_blank"
+    );
+  };
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
@@ -72,20 +79,13 @@ export default function LeadModal({
 
           {/* Content */}
           <div className="mt-12 text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">
+            <h2 className="text-2xl md:text-3xl font-bold mb-1 drop-shadow-lg">
               Descubre Tu Nuevo Hogar
             </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-6">
-              {propertyName}
-            </p>
 
-            {/* Price Banner */}
-            <div className="inline-block bg-white text-primary-dark px-8 py-4 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300">
-              <p className="text-sm font-semibold mb-1 text-gray-600">
-                Precio Especial
-              </p>
-              <p className="text-4xl md:text-5xl font-bold">{price}</p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold drop-shadow-lg">
+              {price}
+            </h2>
           </div>
         </div>
 
@@ -101,6 +101,18 @@ export default function LeadModal({
               className="group-hover:scale-110 transition-transform"
             />
             <span>Contactar por WhatsApp</span>
+          </button>
+
+          {/* Calendly CTA */}
+          <button
+            onClick={handleCalendly}
+            className="w-full mb-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3 group"
+          >
+            <CalendarDays
+              size={24}
+              className="group-hover:scale-110 transition-transform"
+            />
+            <span>Agendar Reunión</span>
           </button>
 
           {/* Divider */}

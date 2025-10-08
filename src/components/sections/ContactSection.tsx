@@ -99,103 +99,79 @@ export function ContactSection({ config, className }: ContactSectionProps) {
           </div>
         </AnimatedSection>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Contact Information - Left Side */}
-          {finalConfig.showContactInfo && (
-            <AnimatedSection
-              animation="slideInLeft"
-              duration={700}
-              delay={200}
-              className="lg:col-span-5"
-            >
-              <div className="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-8 md:p-10 text-white h-full shadow-xl">
-                <h3 className="text-2xl md:text-3xl font-bold mb-6">
-                  {t("contactTitle") || "Sales and Information"}
+        {/* Content - Single Column */}
+        <div className="max-w-2xl mx-auto">
+          <AnimatedSection animation="slideUp" duration={700} delay={200}>
+            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full blur-2xl" />
+
+              {/* Header */}
+              <div className="relative z-10 text-center mb-8">
+                <h3 className="text-3xl md:text-4xl font-bold">
+                  Find out all the details
                 </h3>
+              </div>
+
+              {/* Form Section */}
+              <div className="relative z-10 mb-12">
+                <ContactForm
+                  config={{
+                    showPhone: true,
+                    showDate: false,
+                    showTime: false,
+                    showSubject: false,
+                    showTextArea: false,
+                    labelColor: true,
+                    submitButtonText: t("submit") || "I WANT INFO MORE DETAILS",
+                    successMessage: t("success"),
+                    errorMessage: t("error"),
+                    placeholders: {
+                      name: t("name") || "Nombre",
+                      email: t("email") || "Email",
+                      phone: t("phone") || "Phone Number",
+                    },
+                    apiEndpoint: "/api/contact",
+                  }}
+                />
+              </div>
+
+              {/* Divider */}
+              <div className="relative z-10 w-full h-px bg-white/20 mb-8" />
+
+              {/* Contact Information */}
+              <div className="relative z-10 text-center">
+                <h4 className="text-2xl md:text-3xl font-bold mb-6">
+                  Sales and Information
+                </h4>
 
                 <div className="space-y-6">
                   {/* Phone */}
                   {finalConfig.contactInfo?.phone && (
-                    <a
-                      href={`tel:${finalConfig.contactInfo.phone.replace(/\D/g, "")}`}
-                      className="flex items-start gap-4 group hover:translate-x-1 transition-transform"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                        <Phone className="w-5 h-5" strokeWidth={2} />
+                    <div className="flex flex-col items-center gap-2 group hover:scale-105 transition-transform">
+                      <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                        <Phone className="w-6 h-6" strokeWidth={2} />
                       </div>
-                      <div>
-                        <p className="text-white/80 text-sm mb-1">
-                          {t("phone") || "Phone"}
-                        </p>
-                        <p className="text-lg font-semibold">
-                          {finalConfig.contactInfo.phone}
-                        </p>
-                      </div>
-                    </a>
+                      <p className="text-2xl md:text-3xl font-bold">
+                        {finalConfig.contactInfo.phoneFormatted}
+                      </p>
+                    </div>
                   )}
 
                   {/* Email */}
                   {finalConfig.contactInfo?.email && (
-                    <a
-                      href={`mailto:${finalConfig.contactInfo.email}`}
-                      className="flex items-start gap-4 group hover:translate-x-1 transition-transform"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                        <Mail className="w-5 h-5" strokeWidth={2} />
+                    <div className="flex flex-col items-center gap-2 group hover:scale-105 transition-transform">
+                      <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                        <Mail className="w-6 h-6" strokeWidth={2} />
                       </div>
-                      <div>
-                        <p className="text-white/80 text-sm mb-1">
-                          {t("email") || "Email"}
-                        </p>
-                        <p className="text-lg font-semibold break-all">
-                          {finalConfig.contactInfo.email}
-                        </p>
-                      </div>
-                    </a>
+                      <p className="text-xl md:text-2xl font-bold break-all">
+                        {finalConfig.contactInfo.email}
+                      </p>
+                    </div>
                   )}
                 </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute bottom-8 right-8 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
-                <div className="absolute top-8 right-16 w-20 h-20 bg-secondary/20 rounded-full blur-xl" />
               </div>
-            </AnimatedSection>
-          )}
-
-          {/* Contact Form - Right Side */}
-          <AnimatedSection
-            animation="slideUp"
-            duration={700}
-            delay={300}
-            className={cn(
-              finalConfig.showContactInfo ? "lg:col-span-7" : "lg:col-span-12"
-            )}
-          >
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                {t("title") || "Send us a message"}
-              </h3>
-
-              <ContactForm
-                config={{
-                  showPhone: true,
-                  showDate: false,
-                  showTime: false,
-                  showSubject: false,
-                  showTextArea: false,
-                  submitButtonText: t("submit"),
-                  successMessage: t("success"),
-                  errorMessage: t("error"),
-                  placeholders: {
-                    name: t("name"),
-                    email: t("email"),
-                    phone: t("phone"),
-                    message: t("message"),
-                  },
-                  apiEndpoint: "/api/contact",
-                }}
-              />
             </div>
           </AnimatedSection>
         </div>

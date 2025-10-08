@@ -15,7 +15,10 @@ import {
   Shield,
   Wifi,
   ShoppingBag,
+  Sun,
+  Flag,
   type LucideIcon,
+  Trophy,
 } from "lucide-react";
 import { cn } from "@lib/utils";
 import { AnimatedSection } from "@components/ui/AnimatedSection";
@@ -32,6 +35,9 @@ const iconMap: Record<string, LucideIcon> = {
   shield: Shield,
   wifi: Wifi,
   "shopping-bag": ShoppingBag,
+  sun: Sun,
+  flag: Flag,
+  trophy: Trophy,
 };
 
 export interface Amenity {
@@ -200,10 +206,10 @@ export function AmenitiesSlider({
           </div>
 
           {/* Content Overlay */}
-          <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 md:px-12">
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 md:px-12 text-center">
             <div
               className={cn(
-                "text-center max-w-4xl transition-all duration-500",
+                "max-w-4xl transition-all duration-500",
                 isTransitioning
                   ? "opacity-0 translate-y-8"
                   : "opacity-100 translate-y-0"
@@ -227,7 +233,7 @@ export function AmenitiesSlider({
                 })()}
 
               {/* Title */}
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 drop-shadow-2xl uppercase tracking-wide">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 drop-shadow-2xl uppercase tracking-wide break-words leading-tight">
                 {currentAmenity.title}
               </h3>
 
@@ -243,8 +249,8 @@ export function AmenitiesSlider({
             onClick={goToPrevious}
             disabled={isTransitioning}
             className={cn(
-              "absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20",
-              "w-11 h-11 md:w-14 md:h-14",
+              "absolute left-1 md:left-6 top-1/2 -translate-y-1/2 z-20",
+              "w-6 h-6 md:w-14 md:h-14",
               "bg-white/25 hover:bg-white/35 backdrop-blur-lg",
               "rounded-xl flex items-center justify-center",
               "transition-all duration-200",
@@ -265,8 +271,8 @@ export function AmenitiesSlider({
             onClick={goToNext}
             disabled={isTransitioning}
             className={cn(
-              "absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20",
-              "w-11 h-11 md:w-14 md:h-14",
+              "absolute right-1 md:right-6 top-1/2 -translate-y-1/2 z-20",
+              "w-6 h-6 md:w-14 md:h-14",
               "bg-white/25 hover:bg-white/35 backdrop-blur-lg",
               "rounded-xl flex items-center justify-center",
               "transition-all duration-200",

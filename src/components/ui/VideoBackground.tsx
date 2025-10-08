@@ -15,6 +15,8 @@ export interface VideoBackgroundConfig {
   autoPlay?: boolean;
   loop?: boolean;
   muted?: boolean;
+  height?: "sm" | "md" | "lg" | "xl" | "full" | "screen";
+  customHeight?: string;
 }
 
 interface VideoBackgroundProps {
@@ -40,11 +42,23 @@ export function VideoBackground({
     autoPlay = true,
     loop = true,
     muted = true,
+    height = "lg",
+    customHeight,
   } = config;
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(!checkConnection);
+
+  // Height classes mapping
+  const heightClasses = {
+    sm: "h-[40vh] md:h-[45vh]",
+    md: "h-[50vh] md:h-[55vh]",
+    lg: "h-[60vh] md:h-[65vh]",
+    xl: "h-[70vh] md:h-[75vh]",
+    full: "h-full",
+    screen: "h-screen",
+  };
 
   const shouldLoadVideoBasedOnConnection = useCallback((): boolean => {
     if (typeof window === "undefined") return false;
@@ -144,7 +158,14 @@ export function VideoBackground({
   }, [shouldLoadVideo, src, loop, muted, handleCanPlay]);
 
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden",
+        heightClasses[height],
+        className
+      )}
+      style={customHeight ? { height: customHeight } : undefined}
+    >
       {/* Background Image (always visible) */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
