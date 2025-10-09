@@ -44,10 +44,7 @@ export default function LeadModal({
   };
 
   const handleCalendly = () => {
-    window.open(
-      `https://calendly.com/itsyoshuaa-1/30min?month=2025-10`,
-      "_blank"
-    );
+    window.open(`https://calendly.com/auradelmar/30min`, "_blank");
   };
 
   return (
