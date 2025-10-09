@@ -6,6 +6,7 @@ import { FilterTabs, type FilterOption } from "@components/ui/FilterTabs";
 import { AnimatedSection } from "@components/ui/AnimatedSection";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "@lib/utils";
+import { useTranslations } from "next-intl";
 
 export interface GalleryImage {
   id: string;
@@ -15,11 +16,7 @@ export interface GalleryImage {
 }
 
 export interface GallerySectionConfig {
-  title: string;
-  subtitle?: string;
-  disclaimer?: string;
   images: GalleryImage[];
-  categories: FilterOption[];
 }
 
 interface GallerySectionProps {
@@ -36,7 +33,16 @@ export function GallerySection({ config, className }: GallerySectionProps) {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const { title, subtitle, disclaimer, images, categories } = config;
+  const { images } = config;
+
+  const t = useTranslations("home.gallery");
+
+  const categories = [
+    { value: "all", label: t("categories.all") },
+    { value: "exterior", label: t("categories.exterior") },
+    { value: "interior", label: t("categories.interior") },
+    { value: "amenities", label: t("categories.amenities") },
+  ];
 
   const filteredImages =
     activeFilter === "all"
@@ -128,21 +134,21 @@ export function GallerySection({ config, className }: GallerySectionProps) {
           <div className="container mx-auto px-4 max-w-7xl relative">
             <AnimatedSection animation="slideUp" duration={700}>
               <div className="text-center mb-8 md:mb-10">
-                {subtitle && (
+                {t("subtitle") && (
                   <div className="inline-block mb-3">
                     <span className="text-white/90 font-semibold text-sm uppercase tracking-wide px-4 py-2 bg-white/15 rounded-full backdrop-blur-md border border-white/20">
-                      {subtitle}
+                      {t("subtitle")}
                     </span>
                   </div>
                 )}
-                {title && (
+                {t("title") && (
                   <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                    {title}
+                    {t("title")}
                   </h2>
                 )}
-                {disclaimer && (
+                {t("disclaimer") && (
                   <p className="text-sm md:text-base text-white/85 max-w-3xl mx-auto leading-relaxed">
-                    {disclaimer}
+                    {t("disclaimer")}
                   </p>
                 )}
               </div>
@@ -209,7 +215,7 @@ export function GallerySection({ config, className }: GallerySectionProps) {
                   <button
                     onClick={() => scroll("left")}
                     className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-14 h-14 bg-white hover:bg-gray-50 rounded-full items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 border-2 border-gray-100"
-                    aria-label="Anterior"
+                    aria-label={t("navigationPrevious")}
                   >
                     <ChevronLeft
                       className="w-7 h-7 text-primary-dark"
@@ -222,7 +228,7 @@ export function GallerySection({ config, className }: GallerySectionProps) {
                   <button
                     onClick={() => scroll("right")}
                     className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-14 h-14 bg-white hover:bg-gray-50 rounded-full items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 border-2 border-gray-100"
-                    aria-label="Siguiente"
+                    aria-label={t("navigationNext")}
                   >
                     <ChevronRight
                       className="w-7 h-7 text-primary-dark"
@@ -250,7 +256,7 @@ export function GallerySection({ config, className }: GallerySectionProps) {
                       </svg>
                     </div>
                     <p className="text-gray-600 text-lg font-medium">
-                      No hay imágenes en esta categoría
+                      {t("emptyState")}
                     </p>
                   </div>
                 )}
@@ -270,7 +276,7 @@ export function GallerySection({ config, className }: GallerySectionProps) {
           <button
             onClick={() => setSelectedImageIndex(null)}
             className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center transition-all duration-300 group z-20"
-            aria-label="Cerrar"
+            aria-label={t("close")}
           >
             <X
               className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300"
@@ -285,7 +291,7 @@ export function GallerySection({ config, className }: GallerySectionProps) {
               navigateImage("prev");
             }}
             className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20"
-            aria-label="Anterior"
+            aria-label={t("navigationPrevious")}
           >
             <ChevronLeft
               className="w-6 h-6 md:w-7 md:h-7 text-white"
@@ -300,7 +306,7 @@ export function GallerySection({ config, className }: GallerySectionProps) {
               navigateImage("next");
             }}
             className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/10 hover:bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 z-20"
-            aria-label="Siguiente"
+            aria-label={t("navigationNext")}
           >
             <ChevronRight
               className="w-6 h-6 md:w-7 md:h-7 text-white"
@@ -329,7 +335,8 @@ export function GallerySection({ config, className }: GallerySectionProps) {
                   {filteredImages[selectedImageIndex].alt}
                 </p>
                 <p className="text-white/70 text-sm text-center mt-2">
-                  {selectedImageIndex + 1} / {filteredImages.length}
+                  {selectedImageIndex + 1} {t("imageCounter")}{" "}
+                  {filteredImages.length}
                 </p>
               </div>
             </div>

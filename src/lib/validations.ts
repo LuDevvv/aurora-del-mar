@@ -1,6 +1,60 @@
 import { z } from "zod";
 
 // Contact form validation schema
+
+// Función helper para crear mensajes traducibles
+const createTranslatableSchema = (t: (key: string) => string) => {
+  return z.object({
+    name: z
+      .string()
+      .min(2, t("validation.nameTooShort"))
+      .max(50, t("validation.nameTooLong"))
+      .regex(
+        /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s'-]+$/,
+        t("validation.nameInvalidChars")
+      ),
+
+    email: z
+      .string()
+      .min(1, t("validation.emailRequired"))
+      .email(t("validation.emailInvalid"))
+      .max(100, t("validation.emailTooLong"))
+      .toLowerCase(),
+
+    phone: z
+      .string()
+      .optional()
+      .refine(
+        (val) => !val || /^[\+]?[\d\s\-\(\)]+$/.test(val),
+        t("validation.phoneInvalid")
+      )
+      .refine(
+        (val) => !val || val.replace(/\D/g, "").length >= 10,
+        t("validation.phoneTooShort")
+      ),
+
+    subject: z.string().min(1, t("validation.subjectRequired")),
+    message: z.string().min(1, t("validation.messageRequired")),
+
+    date: z
+      .string()
+      .optional()
+      .refine(
+        (val) => !val || /^\d{4}-\d{2}-\d{2}$/.test(val),
+        t("validation.dateFormat")
+      ),
+
+    time: z
+      .string()
+      .optional()
+      .refine(
+        (val) => !val || /^\d{2}:\d{2}$/.test(val),
+        t("validation.timeFormat")
+      ),
+  });
+};
+
+// Schema base (sin traducciones)
 export const contactFormSchema = z.object({
   name: z
     .string()
@@ -30,7 +84,6 @@ export const contactFormSchema = z.object({
       "Phone number must be at least 10 digits"
     ),
 
-  // 🔥 Hazlos obligatorios
   subject: z.string().min(1, "Subject is required"),
   message: z.string().min(1, "Message is required"),
 
@@ -94,6 +147,7 @@ export const bookingSchema = z.object({
 });
 
 // Export types
+export { createTranslatableSchema };
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 export type NewsletterData = z.infer<typeof newsletterSchema>;
 export type BookingData = z.infer<typeof bookingSchema>;

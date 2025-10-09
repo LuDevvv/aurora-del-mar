@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { X, MessageCircle, Sparkles, CalendarDays } from "lucide-react";
 import { ContactForm } from "@components/forms/ContactForm";
+import { useTranslations } from "next-intl";
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -19,6 +20,8 @@ export default function LeadModal({
   price = "US$997,000",
   whatsappNumber = "+18097779000",
 }: LeadModalProps) {
+  const t = useTranslations("common.leadModal");
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -33,9 +36,7 @@ export default function LeadModal({
   if (!isOpen) return null;
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(
-      `Hola, estoy interesado en ${propertyName}. ¿Podrían darme más información?`
-    );
+    const message = encodeURIComponent(t("whatsappMessage", { propertyName }));
     window.open(
       `https://wa.me/${whatsappNumber.replace(/\D/g, "")}?text=${message}`,
       "_blank"
@@ -69,29 +70,25 @@ export default function LeadModal({
           />
         </button>
 
-        {/* Header Section */}
+        {/* Header */}
         <div className="relative bg-gradient-to-br from-primary-dark via-primary to-primary-light p-8 md:p-10">
-          {/* Limited Badge */}
           <div className="absolute top-6 left-6 flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
             <Sparkles size={16} />
-            <span>¡Pocas Unidades!</span>
+            <span>{t("limitedBadge")}</span>
           </div>
 
-          {/* Content */}
           <div className="mt-12 text-center text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-1 drop-shadow-lg">
-              Descubre Tu Nuevo Hogar
+              {t("title")}
             </h2>
-
             <h2 className="text-3xl md:text-4xl font-bold drop-shadow-lg">
               {price}
             </h2>
           </div>
         </div>
 
-        {/* Body Section */}
+        {/* Body */}
         <div className="p-6 md:p-8">
-          {/* WhatsApp CTA */}
           <button
             onClick={handleWhatsApp}
             className="w-full mb-6 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3 group"
@@ -100,10 +97,9 @@ export default function LeadModal({
               size={24}
               className="group-hover:scale-110 transition-transform"
             />
-            <span>Contactar por WhatsApp</span>
+            <span>{t("whatsappButton")}</span>
           </button>
 
-          {/* Calendly CTA */}
           <button
             onClick={handleCalendly}
             className="w-full mb-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3 group"
@@ -112,46 +108,33 @@ export default function LeadModal({
               size={24}
               className="group-hover:scale-110 transition-transform"
             />
-            <span>Agendar Reunión</span>
+            <span>{t("scheduleButton")}</span>
           </button>
 
-          {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center">
               <span className="bg-white px-4 text-sm text-gray-500 font-medium">
-                o envía tus datos
+                {t("divider")}
               </span>
             </div>
           </div>
 
-          {/* Contact Form */}
           <ContactForm
             config={{
               showPhone: true,
               showDate: false,
               showTime: false,
               showSubject: false,
-              submitButtonText: "Enviar Información",
-              successMessage: "¡Gracias! Te contactaremos pronto.",
-              errorMessage: "Error al enviar. Intenta de nuevo.",
-              placeholders: {
-                name: "Nombre completo",
-                email: "Correo electrónico",
-                phone: "Teléfono",
-              },
               apiEndpoint: "/api/contact",
-              onSuccess: () => {
-                onClose();
-              },
+              onSuccess: () => onClose(),
             }}
           />
 
-          {/* Trust Badge */}
           <p className="text-center text-xs text-gray-500 mt-4">
-            🔒 Tus datos están seguros. No compartimos tu información.
+            {t("trustBadge")}
           </p>
         </div>
       </div>

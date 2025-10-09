@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { MapPin, ExternalLink } from "lucide-react";
 import { cn } from "@lib/utils";
+import { useTranslations } from "next-intl";
 
 export interface LocationConfig {
   propertyName: string;
@@ -43,6 +44,8 @@ export function LocationMap({
   },
   className,
 }: LocationMapProps) {
+  const t = useTranslations("home.location");
+
   const {
     propertyName,
     address,
@@ -63,63 +66,45 @@ export function LocationMap({
   return (
     <section id="location" className={cn("py-12 md:py-16 bg-white", className)}>
       <div className="container mx-auto px-4 max-w-7xl">
-        {/* Header */}
-        {(badge || title) && (
-          <div className="text-center mb-8 md:mb-12">
-            {badge && (
-              <div className="inline-block mb-4">
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold text-sm md:text-base uppercase tracking-wider">
-                  {badge}
-                </span>
-              </div>
-            )}
-            {title && (
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                {title}
-              </h2>
-            )}
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-block mb-4">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold text-sm md:text-base uppercase tracking-wider">
+              {t("badge")}
+            </span>
           </div>
-        )}
-
-        {/* Mobile Info Card */}
-        <div className="md:hidden mb-6">
-          <LocationCard
-            propertyName={propertyName}
-            address={address}
-            coordinates={coordinates}
-            googleMapsUrl={googleMapsUrl}
-            image={image}
-          />
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            {t("title")}
+          </h2>
         </div>
 
-        {/* Map Container */}
+        {/* Mobile Card */}
+        <div className="md:hidden mb-6">
+          <LocationCard {...config} googleMapsUrl={config.googleMapsUrl} />
+        </div>
+
+        {/* Map */}
         <div className="relative w-full rounded-2xl overflow-hidden shadow-xl h-[350px] md:h-[500px]">
-          {/* Google Map Embed */}
           <iframe
-            src={mapEmbedUrl}
+            src={config.mapEmbedUrl}
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0"
-            title={`${propertyName} Location`}
+            title={`${config.propertyName} Location`}
           />
 
-          {/* Desktop Info Card Overlay */}
+          {/* Desktop Card Overlay */}
           <div
             className={cn(
               "hidden md:block absolute z-10 w-[350px]",
-              positionClasses[cardPosition]
+              positionClasses[config.cardPosition || "top-left"]
             )}
           >
             <LocationCard
-              propertyName={propertyName}
-              address={address}
-              coordinates={coordinates}
-              googleMapsUrl={googleMapsUrl}
-              image={image}
+              {...config}
+              googleMapsUrl={config.googleMapsUrl}
               isOverlay
             />
           </div>
@@ -151,8 +136,10 @@ function LocationCard({
   coordinates,
   googleMapsUrl,
   image,
-  isOverlay = false,
+  isOverlay,
 }: LocationCardProps) {
+  const t = useTranslations("home.location");
+
   return (
     <div
       className={cn(
@@ -182,23 +169,24 @@ function LocationCard({
         <div className="flex items-center justify-between pt-3 border-t border-gray-100">
           {coordinates && (
             <span className="text-gray-700 font-medium text-sm">
-              {coordinates}
+              {t("coordinates")}
             </span>
           )}
+
           <a
             href={googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-primary text-sm font-medium transition-colors ml-auto"
           >
-            Open in Maps
+            {t("openInMaps")}
             <ExternalLink size={14} className="ml-1" />
           </a>
         </div>
       </div>
 
       {image && (
-        <div className="relative h-[140px] md:h-[140px] w-full">
+        <div className="relative h-[140px] w-full">
           <Image
             src={image.src}
             alt={image.alt}

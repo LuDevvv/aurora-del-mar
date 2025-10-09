@@ -1,140 +1,44 @@
 {
   "home": {
-    "title": "Riviera del Este - Residencias de Lujo",
+    "title": "Aura Del Mar - Cap Cana",
     "hero": {
-      "headline": "Descubre tu nuevo hogar frente al mar",
-      "subheadline": "El lujo a tu alcance",
-      "cta": {
-        "schedule": "Contactar WhatsApp",
-        "explore": "Explorar Propiedad"
-      }
-    },
-    "counter": {
-      "startsAbout": "Todo comienza en",
-      "days": "DÍAS",
-      "hours": "HORAS",
-      "minutes": "MINUTOS"
-    },
-    "features": {
-      "spaciousRooms": "Habitaciones Amplias",
-      "privateGarden": "Jardín Privado",
-      "walkInClosets": "Vestidores",
-      "swimmingPool": "Piscina"
+      "title": "Rejuvenece en el Paraíso, descubre la exclusividad y bienestar que te esperan en Aura del Mar",
+      "scheduleCall": "Agendar Llamada",
+      "whatsappButton": "Escríbenos al WhatsApp",
+      "scheduleCallLabel": "Agendar una llamada",
+      "whatsappLabel": "Contactar por WhatsApp",
+      "whatsappMessage": "Hola, estoy interesado en conocer más información sobre Aura del Mar."
     },
     "amenitiesSlider": {
       "title": "Amenidades de Clase Mundial",
       "subtitle": "Comodidades Premium",
+      "previousAmenity": "Amenidad anterior",
+      "nextAmenity": "Siguiente amenidad",
       "amenities": {
-        "location": {
-          "title": "UBICACIÓN",
-          "description": "A solo 7 minutos del Aeropuerto Internacional de La Romana, con fácil acceso a las playas de Bayahibe, Isla Catalina e Isla Saona."
-        },
         "events": {
-          "title": "Salones de Uso Múltiple",
-          "description": "Celebra momentos especiales o reuniones privadas en nuestros espacios diseñados para tu comodidad."
+          "title": "Salones Multiuso",
+          "description": "Celebra momentos especiales o reuniones privadas en espacios diseñados para tu comodidad y exclusividad."
+        },
+        "golfParking": {
+          "title": "Parqueo para Carros de Golf",
+          "description": "Movilidad y comodidad dentro de Cap Cana"
+        },
+        "solarium": {
+          "title": "Terraza Solarium con Piscinas",
+          "description": "Relájate y disfruta de vistas panorámicas en nuestra exclusiva terraza Solarium con zonas de descanso."
+        },
+        "jacuzzi": {
+          "title": "Jacuzzis y Piscina de Nado y Recreativa",
+          "description": "Sumérgete en un oasis de tranquilidad y bienestar con nuestras piscinas y jacuzzis exclusivos."
         },
         "gym": {
           "title": "Gimnasio Equipado",
-          "description": "Mantén tu estilo de vida activo con nuestro gimnasio completamente equipado con lo último en tecnología fitness."
+          "description": "Mantente activo y saludable con equipos de última generación en nuestro moderno gimnasio."
         },
-        "pool": {
-          "title": "Piscina",
-          "description": "Disfruta de momentos de relajación en nuestra espectacular piscina con áreas de descanso."
-        },
-        "gardens": {
-          "title": "Áreas Verdes",
-          "description": "Espacios naturales diseñados para tu bienestar y el de tu familia, perfectos para caminar y relajarse."
-        },
-        "playground": {
-          "title": "Área Infantil",
-          "description": "Zona de juegos segura y moderna donde los más pequeños pueden divertirse y hacer amigos."
+        "padelCourt": {
+          "title": "Cancha de Padel Multideporte",
+          "description": "Disfruta de tu deporte favorito en un entorno privilegiado dentro de nuestras instalaciones."
         }
-      }
-    },
-    "partners": {
-      "title": "Nuestros Colaboradores",
-      "ariaLabel": "Carrusel de logos de colaboradores"
-    },
-    "about": {
-      "title": "Sobre Riviera del Este",
-      "description": "Ubicado en la exclusiva zona de La Romana, Riviera del Este ofrece residencias de lujo con impresionantes vistas al océano. Nuestro proyecto residencial combina diseño moderno con el confort caribeño."
-    },
-    "units": {
-      "title": "Modelos Disponibles",
-      "subtitle": "Encuentra tu espacio ideal",
-      "onebed": "1 Habitación",
-      "twobed": "2 Habitaciones",
-      "threebed": "3 Habitaciones",
-      "penthouse": "Penthouse"
-    },
-    "contact": {
-      "title": "Envíanos un mensaje",
-      "subtitle": "Programa una Visita",
-      "contactTitle": "Información y Ventas",
-      "description": "Estaremos encantados de atenderte para responder a todas tus preguntas",
-      "name": "Nombre Completo",
-      "email": "Correo Electrónico",
-      "phone": "Teléfono",
-      "date": "Fecha de Visita",
-      "time": "Hora de Visita",
-      "message": "Mensaje (Opcional)",
-      "submit": "ENVIAR MENSAJE",
-      "sending": "Enviando...",
-      "success": "Mensaje enviado exitosamente",
-      "successDescription": "Te contactaremos pronto",
-      "error": "Hubo un error al enviar tu mensaje",
-      "retryMessage": "Intenta nuevamente en unos momentos",
-      "nameTooShort": "El nombre debe tener al menos 2 caracteres",
-      "emailInvalid": "Email inválido",
-      "dateRequired": "Fecha requerida",
-      "timeRequired": "Hora requerida",
-      "messageTooShort": "El mensaje debe tener al menos 10 caracteres",
-      "selectDate": "Seleccionar fecha",
-      "selectTime": "Seleccionar hora"
-    },
-    "location": {
-      "badge": "Ubicación",
-      "title": "Encuéntranos Aquí",
-      "propertyName": "Riviera del Este",
-      "address1": "Calle Santos Alcalá",
-      "address2": "San Pedro de Macorís 21000",
-      "reference": "Frente a Estación Total Higuamo",
-      "coordinates": "Coordenadas",
-      "openMaps": "Abrir en Maps"
-    },
-    "properties": {
-      "badge": "Modelos Disponibles",
-      "title": "Encuentra Tu Espacio Ideal",
-      "description": "Descubre nuestra selección de apartamentos exclusivos con diferentes distribuciones para adaptarse a tus necesidades.",
-      "contactAgent": "Contactar Agente",
-      "allProperties": "Todas",
-      "residences": "Residencias",
-      "premium": "Premium",
-      "bedrooms": "Habitaciones",
-      "patio": "Patio",
-      "terraza": "Terraza",
-      "studio": "Estudio",
-      "reserveButton": "Reservar con $1,000 USD",
-      "floor": "Piso",
-      "available": "Disponible",
-      "penthouse": "Penthouse",
-      "limitedUnits": "Pocas Unidades",
-      "reserveNow": "Reservar Ahora",
-      "onlyFewLeft": "Solo quedan pocas disponibles",
-      "specialOffer": {
-        "badge": "Oferta Especial",
-        "title": "¡Se Regala en Grande!",
-        "description": {
-          "part1": "Si reserva del",
-          "dates": "6 al 8 de Junio",
-          "part2": "con solo",
-          "amount": "$1,000 USD",
-          "part3": ", le incluimos",
-          "items": "estufa y nevera",
-          "part4": "completamente gratis."
-        },
-        "validity": "Válido solo durante el evento",
-        "limited": "¡LIMITADO!"
       }
     },
     "gallery": {
@@ -147,58 +51,140 @@
         "interior": "Interior",
         "amenities": "Amenidades"
       },
-      "noResults": "No hay imágenes disponibles en esta categoría.",
-      "viewImage": "Ver imagen",
-      "closeImage": "Cerrar imagen"
+      "emptyState": "No hay imágenes en esta categoría",
+      "navigationPrevious": "Anterior",
+      "navigationNext": "Siguiente",
+      "close": "Cerrar",
+      "imageCounter": "de"
     },
-    "overview": {
-      "badge": "Sobre el Apartamento",
-      "title": "Vida Moderna, Diseñada Cuidadosamente",
-      "description": "Perfecto para familias, parejas y profesionales este apartamento combina comodidad, conveniencia y un estilo moderno.",
-      "feature1": "Acabados premium y electrodomésticos modernos",
-      "feature2": "Espacios de vida de concepto abierto",
-      "feature3": "Soluciones de almacenamiento inteligentes",
-      "items": {
-        "edifPremium": "EDIF. PREMIUM",
-        "terrazaPh": "TERRAZA PH",
-        "patio1erNivel": "PATIO 1ER NIVEL",
-        "vistaInterior": "VISTA INTERIOR",
-        "edifResidence": "EDIF. RESIDENCE"
+    "properties": {
+      "badge": "Tipos de Apartamentos",
+      "title": "Elige Tu Espacio Ideal",
+      "description": "Descubre nuestra variedad de modelos diseñados para adaptarse a tu estilo de vida",
+      "filters": {
+        "all": "Todos",
+        "2bed": "2 Habitaciones",
+        "duplex": "Duplex"
+      },
+      "limitedBadge": "Pocas Unidades",
+      "bedrooms": "Habitaciones",
+      "bathrooms": "Baños",
+      "reserveNow": "Reserva Ahora",
+      "features": {
+        "walkingClosets": "2 Walking Closets",
+        "privateRoom": "Sala privada",
+        "breakfast": "Desayunador",
+        "balcony": "Balcón",
+        "laundryArea": "Área de Lavado",
+        "twoLevels": "2 Niveles",
+        "walkingCloset": "Walking Closet",
+        "duplex": "Duplex",
+        "privateRoomWithBath": "Sala privada con baño",
+        "diningRoom": "Comedor"
+      }
+    },
+    "location": {
+      "badge": "Encuéntranos",
+      "title": "Ubicación Privilegiada",
+      "coordinates": "Coordenadas",
+      "openInMaps": "Abrir en Maps"
+    },
+    "developer": {
+      "sectionTitle": "Nuestro Desarrollador",
+      "sectionSubtitle": "Experiencia y Compromiso",
+      "badge": "DESARROLLADOR Y CONSTRUCTOR",
+      "tagline": "Nuestra pasión por la calidad y la innovación nos impulsa a crear espacios que",
+      "highlightText": " superan las expectativas de nuestros clientes.",
+      "projectInfo": "Aura del Mar es un proyecto de BDREX, una empresa con más de 30 años de experiencia en el sector de la construcción y desarrollo inmobiliario en República Dominicana.",
+      "features": {
+        "delivered": "Más de 3,650 apartamentos entregados con los más altos estándares de calidad",
+        "development": "2,000+ apartamentos en desarrollo, expandiendo nuestra visión de calidad"
+      }
+    },
+    "contact": {
+      "title": "Envíanos un mensaje",
+      "subtitle": "Programa una Visita",
+      "description": "Estaremos encantados de atenderte para responder a todas tus preguntas",
+      "contactTitle": "Información y Ventas",
+
+      "name": "Nombre Completo",
+      "namePlaceholder": "Juan Pérez",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+1 (809) 123-4567",
+      "subject": "Asunto",
+      "subjectPlaceholder": "¿Cómo podemos ayudarte?",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos más sobre tu consulta...",
+      "date": "Fecha de Visita",
+      "time": "Hora de Visita",
+
+      "selectDate": "Seleccionar fecha",
+      "selectTime": "Seleccionar hora",
+
+      "submit": "ENVIAR MENSAJE",
+      "sending": "Enviando...",
+
+      "successTitle": "¡Éxito!",
+      "success": "Mensaje enviado exitosamente. Te contactaremos pronto.",
+      "errorTitle": "Error",
+      "error": "Error al enviar el mensaje. Por favor, intenta de nuevo.",
+
+      "defaultSubject": "Consulta desde formulario de contacto",
+      "defaultMessage": "Sin mensaje adicional",
+
+      "validation": {
+        "nameTooShort": "El nombre debe tener al menos 2 caracteres",
+        "nameTooLong": "El nombre debe tener menos de 50 caracteres",
+        "nameInvalidChars": "El nombre solo puede contener letras, espacios, guiones y apóstrofes",
+        "emailRequired": "El correo electrónico es obligatorio",
+        "emailInvalid": "Por favor, ingresa un correo electrónico válido",
+        "emailTooLong": "El correo electrónico debe tener menos de 100 caracteres",
+        "phoneInvalid": "Por favor, ingresa un número de teléfono válido",
+        "phoneTooShort": "El número de teléfono debe tener al menos 10 dígitos",
+        "subjectRequired": "El asunto es obligatorio",
+        "messageRequired": "El mensaje es obligatorio",
+        "dateFormat": "La fecha debe estar en formato AAAA-MM-DD",
+        "timeFormat": "La hora debe estar en formato HH:MM"
       }
     }
   },
   "common": {
-    "nav": {
-      "models": "Modelos",
-      "gallery": "Galería",
-      "contact": "Contacto",
-      "location": "Ubicación",
-      "schedule": "Agendar Cita"
+    "header": {
+      "logoAlt": "Logo Aura del Mar",
+      "moreInfo": "Más info",
+      "requestInfo": "Solicitar más información"
     },
     "footer": {
-      "rights": "Todos los derechos reservados",
-      "privacy": "Política de Privacidad",
-      "terms": "Términos de Servicio",
+      "description": "Residencias de lujo en Cap Cana con amenidades exclusivas y ubicación privilegiada",
       "contactTitle": "Contáctanos",
-      "description": "Riviera del Este ofrece propiedades premium en San Pedro de Macorís, con impresionantes vistas y modernas comodidades para un estilo de vida de lujo confortable.",
-      "address": "Calle Santos Alcalá, San Pedro de Macorís 21000",
-      "quickLinks": "Enlaces Rápidos",
-      "newsletter": "Boletín Informativo",
-      "newsletterDesc": "Suscríbete para recibir las últimas noticias y actualizaciones sobre nuestras propiedades.",
-      "emailPlaceholder": "Tu correo electrónico",
-      "subscribe": "Suscribirse",
-      "event": {
-        "dates": "Feria Inmobiliaria Del 6 al 8 de Junio, 2025",
-        "hours": "Abierto Diariamente: 10:00 AM - 5:00 PM"
-      }
+      "copyrightText": "Todos los derechos reservados",
+      "poweredBy": "Powered by Musseb Group",
+      "followUs": "Síguenos en"
     },
     "whatsapp": {
       "ariaLabel": "Contáctanos vía WhatsApp",
-      "defaultMessage": "¡Hola! Estoy interesado(a) en las propiedades de Riviera del Este. ¿Podrían proporcionarme más información?"
+      "defaultMessage": "¡Hola! Estoy interesado(a) en las propiedades de Aura del Mar. ¿Podrían proporcionarme más información?"
     },
     "languageSwitcher": {
       "en": "Inglés",
       "es": "Español"
+    },
+    "leadModal": {
+      "limitedBadge": "¡Pocas Unidades!",
+      "title": "Descubre Tu Nuevo Hogar",
+      "whatsappButton": "Contactar por WhatsApp",
+      "scheduleButton": "Agendar Reunión",
+      "divider": "o envía tus datos",
+      "submitButton": "Enviar Información",
+      "successMessage": "¡Gracias! Te contactaremos pronto.",
+      "errorMessage": "Error al enviar. Intenta de nuevo.",
+      "namePlaceholder": "Nombre completo",
+      "emailPlaceholder": "Correo electrónico",
+      "phonePlaceholder": "Teléfono",
+      "trustBadge": "🔒 Tus datos están seguros. No compartimos tu información.",
+      "whatsappMessage": "Hola, estoy interesado en {propertyName}. ¿Podrían darme más información?"
     }
   }
 }

@@ -54,24 +54,12 @@ export function HeroSection({ config, className }: HeroSectionProps) {
     if (!cleanNumber) return;
 
     const message = encodeURIComponent(
-      config.cta.whatsapp.message ||
-        "Hola, estoy interesado en conocer más información sobre Aura del Mar."
+      config.cta.whatsapp.message || t("whatsappMessage")
     );
     window.open(`https://wa.me/${cleanNumber}?text=${message}`, "_blank");
   };
 
   const handleScheduleClick = () => {
-    // if (config.cta?.schedule?.onClick) {
-    //   config.cta.schedule.onClick();
-    // } else if (config.cta?.schedule?.href) {
-    //   const element = document.querySelector(config.cta.schedule.href);
-    //   element?.scrollIntoView({ behavior: "smooth" });
-    // }
-
-    handleCalendly();
-  };
-
-  const handleCalendly = () => {
     window.open(
       `https://calendly.com/itsyoshuaa-1/30min?month=2025-10`,
       "_blank"
@@ -83,7 +71,6 @@ export function HeroSection({ config, className }: HeroSectionProps) {
       id="hero"
       className={cn("relative flex flex-col mb-68", className)}
     >
-      {/* Video Background Container - Uses flex-1 to take available space */}
       <div className="relative flex-1">
         <VideoBackground
           config={{
@@ -94,20 +81,15 @@ export function HeroSection({ config, className }: HeroSectionProps) {
             loop: true,
             muted: true,
             height: "md",
-            // O usa customHeight para un valor específico:
-            // customHeight: '400px',
           }}
           className="relative inset-0"
         />
 
-        {/* Optional: Gradient overlay at bottom for smooth transition */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/50 to-transparent z-[5]" />
       </div>
 
-      {/* Orange Card Container - Properly positioned with negative margin */}
       <div className="absolute z-20 bottom-[-160px] left-1/2 -translate-x-1/2 translate-y-1/3 w-full">
         <div className="container mx-auto px-4 max-w-7xl">
-          {/* Centered Card Wrapper */}
           <div className="flex justify-center">
             <AnimatedSection
               animation="slideUp"
@@ -115,37 +97,32 @@ export function HeroSection({ config, className }: HeroSectionProps) {
               delay={400}
               className="w-full max-w-2xl"
             >
-              {/* Orange Card */}
               <div
                 className={cn(
                   "rounded-3xl md:rounded-[2rem]",
                   "p-8 md:p-10 lg:p-12",
                   "shadow-2xl backdrop-blur-sm",
                   "border border-white/10",
-                  "transform-gpu" // Better performance for transforms
+                  "transform-gpu"
                 )}
                 style={{
                   backgroundColor: cardBgColor,
                 }}
               >
-                {/* Card Title */}
                 <h2
                   className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6 md:mb-8 leading-relaxed"
                   style={{
                     color: cardTextColor,
                   }}
                 >
-                  Rejuvenece en el Paraíso, descubre la exclusividad y bienestar
-                  que te esperan en Aura del Mar
+                  {t("title")}
                 </h2>
 
-                {/* CTA Buttons Container */}
                 <div className="space-y-3 md:space-y-4">
-                  {/* Schedule Call Button */}
                   <button
                     onClick={handleScheduleClick}
                     type="button"
-                    aria-label="Agendar una llamada"
+                    aria-label={t("scheduleCallLabel")}
                     className={cn(
                       "w-full group relative overflow-hidden",
                       "px-6 py-3 md:px-8 md:py-4",
@@ -172,17 +149,16 @@ export function HeroSection({ config, className }: HeroSectionProps) {
                           color: cardBgColor,
                         }}
                       >
-                        Agendar Llamada
+                        {t("scheduleCall")}
                       </span>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   </button>
 
-                  {/* WhatsApp Button */}
                   <button
                     onClick={handleWhatsAppClick}
                     type="button"
-                    aria-label="Contactar por WhatsApp"
+                    aria-label={t("whatsappLabel")}
                     className={cn(
                       "w-full group relative overflow-hidden",
                       "px-6 py-3 md:px-8 md:py-4",
@@ -200,7 +176,7 @@ export function HeroSection({ config, className }: HeroSectionProps) {
                         strokeWidth={2.5}
                       />
                       <span className="text-base md:text-lg font-bold text-white">
-                        Escríbenos al WhatsApp
+                        {t("whatsappButton")}
                       </span>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />

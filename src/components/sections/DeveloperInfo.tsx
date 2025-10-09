@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Building2, Award, Sparkles, TrendingUp } from "lucide-react";
 import { AnimatedSection } from "@components/ui/AnimatedSection";
+import { useTranslations } from "next-intl";
 
 export interface DeveloperConfig {
   badge?: string;
@@ -145,37 +146,14 @@ function HighlightedText({
 }
 
 export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
+  const t = useTranslations("home.developer");
   const {
-    badge = "DESARROLLADOR Y CONSTRUCTOR",
     logo,
-    title,
-    tagline,
-    description,
-    highlightText,
-    projectInfo,
-    features,
     backgroundColor = "#FFFFFF",
     textColor = "#1f2937",
     accentColor = "#F97316",
     badgeColor = "#1E3A5F",
   } = config;
-
-  const getFormattedDescription = () => {
-    const textToFormat = tagline || description || "";
-    if (!highlightText || !textToFormat) return textToFormat;
-
-    const parts = textToFormat.split(highlightText);
-    return (
-      <>
-        {parts[0]}
-        <span className="font-semibold" style={{ color: accentColor }}>
-          {highlightText}
-        </span>
-        {parts[1]}
-      </>
-    );
-  };
-
   return (
     <div className="container mx-auto px-4 max-w-7xl">
       <div
@@ -188,108 +166,77 @@ export function DeveloperInfo({ config, className }: DeveloperInfoProps) {
             style={{ backgroundColor: badgeColor }}
           >
             <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide">
-              {badge}
+              {t("badge")}
             </h2>
           </div>
         </AnimatedSection>
 
         <div className="p-6 md:p-10 lg:p-14">
-          <AnimatedSection
-            animation="scaleIn"
-            duration={700}
-            delay={200}
-            className="flex justify-center mb-4 md:mb-6"
-          >
-            <div className="relative">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width || 280}
-                height={logo.height || 100}
-                className="object-contain max-w-[220px] md:max-w-[280px]"
-                priority
-              />
-            </div>
+          <AnimatedSection animation="scaleIn" duration={700} delay={200}>
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width || 280}
+              height={logo.height || 100}
+            />
           </AnimatedSection>
 
-          {(tagline || description) && (
-            <AnimatedSection
-              animation="slideUp"
-              duration={700}
-              delay={300}
-              className="text-center mb-6 md:mb-8"
+          <AnimatedSection animation="slideUp" duration={700} delay={300}>
+            <p
+              className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto"
+              style={{ color: textColor }}
             >
-              <p
-                className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto"
-                style={{ color: textColor }}
-              >
-                {getFormattedDescription()}
-              </p>
-            </AnimatedSection>
-          )}
+              {t("tagline")}
+              <span className="font-semibold" style={{ color: accentColor }}>
+                {t("highlightText")}
+              </span>
+            </p>
+          </AnimatedSection>
 
-          {projectInfo && (
-            <AnimatedSection
-              animation="fadeIn"
-              duration={700}
-              delay={400}
-              className="text-center mb-6 md:mb-8"
+          <AnimatedSection animation="fadeIn" duration={700} delay={400}>
+            <p
+              className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto"
+              style={{ color: textColor, opacity: 0.85 }}
             >
-              <p
-                className="text-sm md:text-base leading-relaxed max-w-2xl mx-auto"
-                style={{ color: textColor, opacity: 0.85 }}
-              >
-                {projectInfo}
-              </p>
-            </AnimatedSection>
-          )}
+              {t("projectInfo")}
+            </p>
+          </AnimatedSection>
 
-          {features && features.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-              {features.map((feature, index) => {
-                const Icon = iconMap[feature.icon];
-                return (
-                  <AnimatedSection
-                    key={index}
-                    animation="slideUp"
-                    duration={700}
-                    delay={500 + index * 100}
-                  >
-                    <div className="flex items-start gap-4 p-5 md:p-6 rounded-2xl bg-gray-50/80 hover:bg-gray-50 transition-colors">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-                        style={{ backgroundColor: `${accentColor}15` }}
-                      >
-                        <Icon
-                          size={24}
-                          style={{ color: accentColor }}
-                          strokeWidth={2}
-                        />
-                      </div>
-                      <p
-                        className="text-sm md:text-base leading-relaxed pt-1"
-                        style={{ color: textColor }}
-                      >
-                        <HighlightedText
-                          text={feature.text}
-                          accentColor={accentColor}
-                        />
-                      </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {["delivered", "development"].map((key, index) => {
+              const Icon = iconMap[index === 0 ? "building" : "trending"];
+              return (
+                <AnimatedSection
+                  key={key}
+                  animation="slideUp"
+                  duration={700}
+                  delay={500 + index * 100}
+                >
+                  <div className="flex items-start gap-4 p-5 md:p-6 rounded-2xl bg-gray-50/80 hover:bg-gray-50">
+                    <div
+                      className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: `${accentColor}15` }}
+                    >
+                      <Icon
+                        size={24}
+                        style={{ color: accentColor }}
+                        strokeWidth={2}
+                      />
                     </div>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          )}
-
-          <div
-            className="absolute top-20 left-10 w-20 h-20 rounded-full opacity-5 blur-2xl"
-            style={{ backgroundColor: accentColor }}
-          />
-          <div
-            className="absolute bottom-20 right-10 w-32 h-32 rounded-full opacity-5 blur-3xl"
-            style={{ backgroundColor: badgeColor }}
-          />
+                    <p
+                      className="text-sm md:text-base leading-relaxed pt-1"
+                      style={{ color: textColor }}
+                    >
+                      <HighlightedText
+                        text={t(`features.${key}`)}
+                        accentColor={accentColor}
+                      />
+                    </p>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

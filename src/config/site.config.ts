@@ -44,7 +44,6 @@ export const siteConfig = {
   },
 };
 
-// Header Configuration
 export const headerConfig: HeaderConfig = {
   logo: {
     src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759871646/aurora-del-mar_otgefi.png",
@@ -64,194 +63,77 @@ export const headerConfig: HeaderConfig = {
   maxWidth: "1400px",
 };
 
-// WhatsApp Floating Button Configuration
-export const whatsappConfig: WhatsAppButtonConfig = {
-  phoneNumber: siteConfig.contact.phone,
-  message: `Hola, estoy interesado en conocer más sobre ${siteConfig.name}`,
-  position: "bottom-right",
-  showOnScroll: true,
-  scrollThreshold: 300,
-  showAfterDelay: 3000,
-  size: "md",
-  color: siteConfig.colors.whatsapp,
-  hoverColor: "#22c55e",
-  pulseAnimation: true,
-  icon: "default",
-  ariaLabel: "Contáctanos por WhatsApp",
-};
-
-// Footer Configuration
-export const footerConfig: FooterConfig = {
-  logo: {
-    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759944409/blanco2_b5ogt7.png",
-    alt: siteConfig.name,
-    width: 240,
-    height: 70,
+export const heroConfig: HeroSectionConfig = {
+  video: {
+    src: "https://res.cloudinary.com/dcuapqoii/video/upload/v1759888170/VideoPrincipal_tnpcng.mp4",
+    poster:
+      "https://res.cloudinary.com/dcuapqoii/image/upload/v1759910029/Screenshot_2025-10-08_035326_qqz1kd.png",
+    overlay: true,
+    overlayOpacity: 65,
+    overlayColor: "#0a1929",
   },
-  description: siteConfig.description,
-  socialLinks: [
-    { platform: "instagram" as const, url: siteConfig.social.instagram },
-  ],
-  contactInfo: {
-    address: siteConfig.contact.address.full,
-    phone: siteConfig.contact.phoneFormatted,
-    email: siteConfig.contact.email,
+  card: {
+    backgroundColor: "#2D8BCB",
+    textColor: "#ffffff",
   },
-  copyrightText: `© ${new Date().getFullYear()} ${siteConfig.name}. Todos los derechos reservados.`,
-
-  // Background Image - Dominican Republic beach/landscape
-  backgroundImage:
-    "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
-
-  overlayColor: "#1E3A5F", // Navy blue from your branding
-  overlayOpacity: 0.92, // Strong overlay for text contrast
-};
-
-// Location Configuration
-export const locationConfig = {
-  propertyName: siteConfig.name,
-  address: {
-    line1: siteConfig.contact.address.line1,
-    line2: siteConfig.contact.address.line2,
+  cta: {
+    whatsapp: {
+      phoneNumber: siteConfig.contact.phone,
+      message: `Hola, estoy interesado en ${siteConfig.name}`,
+    },
+    schedule: {
+      href: "#contact",
+    },
   },
-  coordinates: siteConfig.contact.coordinates.formatted,
-  mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2232.1641174514625!2d-68.4119377!3d18.4686503!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea89b003efe8f35%3A0x5b8cd5defed28837!2sAURA%20DEL%20MAR%20cap%20cana!5e1!3m2!1ses-419!2sdo!4v1759890642903!5m2!1ses-419!2sdo",
-  googleMapsUrl: `https://maps.app.goo.gl/zx3pkiL3VPe4zbbG7`,
-  cardPosition: "top-left" as const,
-};
-
-export const statsConfig = {
-  stats: [
-    {
-      value: "3,650",
-      prefix: "+",
-      label: "Apartamentos entregados",
-      color: "#F97316",
-      icon: "building" as const,
-    },
-    {
-      value: "30",
-      prefix: "+",
-      label: "Años de experiencia",
-      color: "#F97316",
-      icon: "calendar" as const,
-    },
-    {
-      value: "1,650",
-      prefix: "+",
-      label: "Colaboradores",
-      color: "#F97316",
-      icon: "users" as const,
-    },
-    {
-      value: "2,000",
-      prefix: "+",
-      label: "Apartamentos en proyecto",
-      color: "#F97316",
-      icon: "trending" as const,
-    },
-  ],
-  layout: "2-columns" as const,
-  backgroundColor: "#FEF3F2",
-  textColor: "#1E3A5F",
-  accentColor: "#F97316",
-  animated: true,
-};
-
-export const developerConfig = {
-  // Header Badge
-  badge: "DESARROLLADOR Y CONSTRUCTOR",
-
-  // Logo Configuration
-  logo: {
-    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759873868/BDREX-Logo-FC-300x142_sdkpbo.png", // Update with your actual logo path
-    alt: "BDREX - Desarrollador y Constructor",
-    width: 280,
-    height: 100,
-  },
-
-  // Main Tagline (appears first, larger text)
-  tagline:
-    "Nuestra pasión por la calidad y la innovación nos impulsa a crear espacios que",
-
-  // Text to highlight in the tagline (will be colored with accentColor)
-  highlightText: " superan las expectativas de nuestros clientes.",
-
-  // Secondary Description (appears below tagline, smaller text)
-  projectInfo:
-    "Aura del Mar es un proyecto de BDREX, una empresa con más de 30 años de experiencia en el sector de la construcción y desarrollo inmobiliario en República Dominicana.",
-
-  // Feature Cards (2 column grid)
-  features: [
-    {
-      icon: "building" as const,
-      text: "Más de 3,650 apartamentos entregados con los más altos estándares de calidad",
-    },
-    {
-      icon: "trending" as const,
-      text: "2,000+ apartamentos en desarrollo, expandiendo nuestra visión de calidad",
-    },
-  ],
-
-  // Visual Theme Colors
-  backgroundColor: "#FFFFFF", // Card background
-  textColor: "#1f2937", // Main text color
-  accentColor: "#F97316", // Orange - highlights and icons
-  badgeColor: "#1E3A5F", // Navy blue - header badge
+  useTranslations: true,
 };
 
 export const amenitiesSliderConfig: AmenitiesSliderConfig = {
   amenities: [
     {
       id: "events",
-      title: "Salones Multiuso",
-      description:
-        "Celebra momentos especiales o reuniones privadas en espacios diseñados para tu comodidad y exclusividad.",
+      title: "", // Se obtiene de traducciones
+      description: "",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895611/Patio_ADM_Final_11zon_nzjd6u.jpg",
       icon: "users",
     },
     {
-      id: "golf-parking",
-      title: "Parqueo para Carros de Golf",
-      description: "Movilidad y comodidad dentro de Cap Cana",
+      id: "golfParking",
+      title: "",
+      description: "",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759953844/golf-2571826_640_cldkcp.png",
       icon: "trophy",
     },
     {
       id: "solarium",
-      title: "Terraza Solarium con Piscinas",
-      description:
-        "Relájate y disfruta de vistas panorámicas en nuestra exclusiva terraza Solarium con zonas de descanso.",
+      title: "",
+      description: "",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952883/Artboard_7_w7qec7.png",
       icon: "sun",
     },
     {
       id: "jacuzzi",
-      title: "Jacuzzis y Piscina de Nado y Recreativa",
-      description:
-        "Sumérgete en un oasis de tranquilidad y bienestar con nuestras piscinas y jacuzzis exclusivos.",
+      title: "",
+      description: "",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952863/Artboard_11_u0st6q.png",
       icon: "waves",
     },
     {
       id: "gym",
-      title: "Gimnasio Equipado",
-      description:
-        "Mantente activo y saludable con equipos de última generación en nuestro moderno gimnasio.",
+      title: "",
+      description: "",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759895612/Gym_ADM_Final_11zon_gitjlf.jpg",
       icon: "dumbbell",
     },
     {
-      id: "padel-court",
-      title: "Cancha de Padel Multideporte",
-      description:
-        "Disfruta de tu deporte favorito en un entorno privilegiado dentro de nuestras instalaciones.",
+      id: "padelCourt",
+      title: "",
+      description: "",
       image:
         "https://res.cloudinary.com/dcuapqoii/image/upload/v1759952809/Artboard_8_tbqsti.png",
       icon: "flag",
@@ -264,18 +146,6 @@ export const amenitiesSliderConfig: AmenitiesSliderConfig = {
 };
 
 export const galleryConfig: GallerySectionConfig = {
-  title: "Descubre la Belleza de Aura del Mar",
-  subtitle: "Galería",
-  disclaimer:
-    "Las imágenes presentadas son representaciones conceptuales del proyecto. Podrían estar sujetas a modificaciones técnicas y/o estructurales durante el proceso de desarrollo.",
-
-  categories: [
-    { value: "all", label: "Todo" },
-    { value: "exterior", label: "Exterior" },
-    { value: "interior", label: "Interior" },
-    { value: "amenities", label: "Amenidades" },
-  ],
-
   images: [
     // Exterior Images
     {
@@ -405,6 +275,148 @@ export const galleryConfig: GallerySectionConfig = {
   ],
 };
 
+export const propertiesConfig = {
+  properties: [
+    {
+      id: "modelo-a",
+      model: "Modelo A",
+      area: 125,
+      sqft: 1345,
+      bedrooms: 2,
+      bathrooms: 3,
+      features: ["walkingClosets", "privateRoom", "breakfast", "balcony"],
+      category: "2bed" as const,
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759906308/Planta_Tipo_A_4_11zon_ciwaby.jpg",
+    },
+    {
+      id: "modelo-b",
+      model: "Modelo B",
+      area: 125,
+      sqft: 1345,
+      bedrooms: 2,
+      bathrooms: 3,
+      features: ["privateRoom", "breakfast", "balcony", "laundryArea"],
+      category: "2bed" as const,
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759906311/Planta_Tipo_B_5_11zon_xjpnie.jpg",
+    },
+    {
+      id: "modelo-c",
+      model: "Modelo C",
+      area: 140,
+      sqft: 1507,
+      bedrooms: 2,
+      bathrooms: 3,
+      features: ["walkingClosets", "privateRoom", "breakfast", "balcony"],
+      category: "2bed" as const,
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759906309/Planta_Tipo_C_1_11zon_pla01q.jpg",
+      limited: true,
+    },
+    {
+      id: "modelo-d",
+      model: "Modelo D",
+      area: 92,
+      sqft: 992,
+      bedrooms: 1,
+      bathrooms: 2,
+      features: ["twoLevels", "walkingCloset", "duplex", "balcony"],
+      category: "duplex" as const,
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759964470/f56f9d6d-bb59-4325-b26d-d12d6b6c97e3.png",
+    },
+    {
+      id: "modelo-e",
+      model: "Modelo E",
+      area: 82,
+      sqft: 882,
+      bedrooms: 1,
+      bathrooms: 1.5,
+      features: ["walkingCloset", "laundryArea", "balcony", "diningRoom"],
+      category: "1bed" as const,
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759906310/Planta_Tipo_E_2_11zon_sn5q1i.jpg",
+    },
+    {
+      id: "modelo-f",
+      model: "Modelo F",
+      area: 95,
+      sqft: 1022,
+      bedrooms: 1,
+      bathrooms: 2,
+      features: ["privateRoomWithBath", "breakfast", "balcony", "laundryArea"],
+      category: "1bed" as const,
+      image:
+        "https://res.cloudinary.com/dcuapqoii/image/upload/v1759906848/planta_Tipo_F_3_11zon_vutn2e.jpg",
+    },
+  ],
+};
+
+export const locationConfig = {
+  propertyName: siteConfig.name,
+  address: {
+    line1: siteConfig.contact.address.line1,
+    line2: siteConfig.contact.address.line2,
+  },
+  coordinates: siteConfig.contact.coordinates.formatted,
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2232.1641174514625!2d-68.4119377!3d18.4686503!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea89b003efe8f35%3A0x5b8cd5defed28837!2sAURA%20DEL%20MAR%20cap%20cana!5e1!3m2!1ses-419!2sdo!4v1759890642903!5m2!1ses-419!2sdo",
+  googleMapsUrl: `https://maps.app.goo.gl/zx3pkiL3VPe4zbbG7`,
+  cardPosition: "top-left" as const,
+};
+
+export const developerConfig = {
+  logo: {
+    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759873868/BDREX-Logo-FC-300x142_sdkpbo.png",
+    alt: "BDREX",
+    width: 280,
+    height: 100,
+  },
+  backgroundColor: "#FFFFFF",
+  textColor: "#1f2937",
+  accentColor: "#F97316",
+  badgeColor: "#1E3A5F",
+};
+
+// export const statsConfig = {
+//   stats: [
+//     {
+//       value: "3,650",
+//       prefix: "+",
+//       label: "Apartamentos entregados",
+//       color: "#F97316",
+//       icon: "building" as const,
+//     },
+//     {
+//       value: "30",
+//       prefix: "+",
+//       label: "Años de experiencia",
+//       color: "#F97316",
+//       icon: "calendar" as const,
+//     },
+//     {
+//       value: "1,650",
+//       prefix: "+",
+//       label: "Colaboradores",
+//       color: "#F97316",
+//       icon: "users" as const,
+//     },
+//     {
+//       value: "2,000",
+//       prefix: "+",
+//       label: "Apartamentos en proyecto",
+//       color: "#F97316",
+//       icon: "trending" as const,
+//     },
+//   ],
+//   layout: "2-columns" as const,
+//   backgroundColor: "#FEF3F2",
+//   textColor: "#1E3A5F",
+//   accentColor: "#F97316",
+//   animated: true,
+// };
+
 export const contactConfig: ContactSectionConfig = {
   showContactInfo: true,
   contactInfo: {
@@ -420,27 +432,40 @@ export const contactConfig: ContactSectionConfig = {
   },
 };
 
-export const heroConfig: HeroSectionConfig = {
-  video: {
-    src: "https://res.cloudinary.com/dcuapqoii/video/upload/v1759888170/VideoPrincipal_tnpcng.mp4",
-    poster:
-      "https://res.cloudinary.com/dcuapqoii/image/upload/v1759910029/Screenshot_2025-10-08_035326_qqz1kd.png",
-    overlay: true,
-    overlayOpacity: 65,
-    overlayColor: "#0a1929",
+export const footerConfig: FooterConfig = {
+  logo: {
+    src: "https://res.cloudinary.com/dcuapqoii/image/upload/v1759944409/blanco2_b5ogt7.png",
+    alt: siteConfig.name,
+    width: 240,
+    height: 70,
   },
-  card: {
-    backgroundColor: "#f97316",
-    textColor: "#ffffff",
+  // description se obtiene de traducciones
+  socialLinks: [
+    { platform: "instagram" as const, url: siteConfig.social.instagram },
+  ],
+  contactInfo: {
+    address: siteConfig.contact.address.full,
+    phone: siteConfig.contact.phoneFormatted,
+    email: siteConfig.contact.email,
   },
-  cta: {
-    whatsapp: {
-      phoneNumber: siteConfig.contact.phone,
-      message: `Hola, estoy interesado en ${siteConfig.name}`,
-    },
-    schedule: {
-      href: "#contact",
-    },
-  },
-  useTranslations: true,
+  // copyrightText se construye dinámicamente
+  backgroundImage:
+    "https://res.cloudinary.com/dcuapqoii/image/upload/v1759876184/Artboard_18_xhihql.png",
+  overlayColor: "#1E3A5F",
+  overlayOpacity: 0.92,
+};
+
+export const whatsappConfig: WhatsAppButtonConfig = {
+  phoneNumber: siteConfig.contact.phone,
+  message: `Hola, estoy interesado en conocer más sobre ${siteConfig.name}`,
+  position: "bottom-right",
+  showOnScroll: true,
+  scrollThreshold: 300,
+  showAfterDelay: 3000,
+  size: "md",
+  color: siteConfig.colors.whatsapp,
+  hoverColor: "#22c55e",
+  pulseAnimation: true,
+  icon: "default",
+  ariaLabel: "Contáctanos por WhatsApp",
 };

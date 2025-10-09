@@ -107,13 +107,6 @@ export function ContactSection({ config, className }: ContactSectionProps) {
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full blur-2xl" />
 
-              {/* Header */}
-              <div className="relative z-10 text-center mb-8">
-                <h3 className="text-3xl md:text-4xl font-bold">
-                  Find out all the details
-                </h3>
-              </div>
-
               {/* Form Section */}
               <div className="relative z-10 mb-12">
                 <ContactForm
@@ -124,14 +117,6 @@ export function ContactSection({ config, className }: ContactSectionProps) {
                     showSubject: false,
                     showTextArea: false,
                     labelColor: true,
-                    submitButtonText: t("submit") || "I WANT INFO MORE DETAILS",
-                    successMessage: t("success"),
-                    errorMessage: t("error"),
-                    placeholders: {
-                      name: t("name") || "Nombre",
-                      email: t("email") || "Email",
-                      phone: t("phone") || "Phone Number",
-                    },
                     apiEndpoint: "/api/contact",
                   }}
                 />

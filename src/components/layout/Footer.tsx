@@ -11,6 +11,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { cn } from "@lib/utils";
+import { useTranslations } from "next-intl";
 
 export interface SocialLink {
   platform: "facebook" | "instagram";
@@ -50,6 +51,8 @@ const socialIcons = {
 };
 
 export function Footer({ config, className }: FooterProps) {
+  const t = useTranslations("common.footer");
+
   const currentYear = new Date().getFullYear();
 
   const defaultConfig: FooterConfig = {
@@ -113,9 +116,9 @@ export function Footer({ config, className }: FooterProps) {
               </div>
             )}
 
-            {finalConfig.description && (
+            {t("description") && (
               <p className="text-white/90 text-sm md:text-base leading-relaxed mb-6 max-w-md">
-                {finalConfig.description}
+                {t("description")}
               </p>
             )}
 
@@ -138,7 +141,7 @@ export function Footer({ config, className }: FooterProps) {
                         "transition-all duration-300",
                         "hover:scale-110 hover:shadow-lg"
                       )}
-                      aria-label={`Follow us on ${social.platform}`}
+                      aria-label={`${t("followUs")} ${social.platform}`}
                     >
                       <Icon
                         className="h-5 w-5 text-white transition-transform group-hover:scale-110"
@@ -155,7 +158,7 @@ export function Footer({ config, className }: FooterProps) {
           {finalConfig.contactInfo && (
             <div className="lg:col-span-2">
               <h3 className="text-lg md:text-xl font-bold mb-6 text-white">
-                Contáctanos
+                {t("contactTitle")}{" "}
               </h3>
               <div className="space-y-5">
                 {finalConfig.contactInfo.address && (
@@ -211,15 +214,15 @@ export function Footer({ config, className }: FooterProps) {
         <div className="border-t border-white/20 mt-12 md:mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/70 text-sm text-center md:text-left">
-              {finalConfig.copyrightText}
+              © {currentYear} {finalConfig.logo?.alt || "Aura del Mar"}.{" "}
+              {t("copyrightText")}
             </p>
             <a
-              href="https://casalinainmobiliaria.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors group"
             >
-              <span>Powered by Musseb Group</span>
+              <span>{t("poweredBy")}</span>
               <ExternalLink
                 size={14}
                 className="group-hover:translate-x-0.5 transition-transform"

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@lib/utils";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@components/ui/LanguageSwitcher";
@@ -36,7 +36,7 @@ export function Header({ config, className }: HeaderProps) {
   const t = useTranslations("common");
   const { isOpen, openModal, closeModal } = useLeadModal();
 
-  const { logo, whatsappNumber, ctaButton, maxWidth = "1400px" } = config;
+  const { logo, ctaButton, maxWidth = "1400px" } = config;
 
   // Handle scroll for shadow effect
   useEffect(() => {
@@ -47,12 +47,6 @@ export function Header({ config, className }: HeaderProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleWhatsAppClick = () => {
-    const cleanNumber = whatsappNumber.replace(/\D/g, "");
-    const message = encodeURIComponent(t("whatsapp.defaultMessage"));
-    window.open(`https://wa.me/${cleanNumber}?text=${message}`, "_blank");
-  };
 
   const handleCtaClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (ctaButton?.onClick) {
@@ -81,7 +75,7 @@ export function Header({ config, className }: HeaderProps) {
             >
               <Image
                 src={logo.src}
-                alt={logo.alt}
+                alt={t("header.logoAlt")}
                 width={logo.width || 280}
                 height={logo.height || 80}
                 className="object-contain h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
@@ -106,9 +100,9 @@ export function Header({ config, className }: HeaderProps) {
                   )}
                 >
                   <span className="whitespace-nowrap">
-                    <span className="sm:hidden">Más info</span>
+                    <span className="sm:hidden">{t("header.moreInfo")}</span>
                     <span className="hidden sm:inline">
-                      Solicitar más información
+                      {t("header.requestInfo")}
                     </span>
                   </span>
                   <ChevronRight size={18} className="flex-shrink-0" />

@@ -20,24 +20,12 @@ export default function Home() {
   return (
     <LandingPageLayout>
       <HeroSection config={heroConfig} />
-      <AmenitiesSlider
-        config={amenitiesSliderConfig}
-        title={"Amenidades de Clase Mundial"}
-        subtitle={"Comodidades Premium"}
-      />
-
+      <AmenitiesSlider config={amenitiesSliderConfig} />
       <GallerySection config={galleryConfig} />
-
       <PropertiesSection />
-
       <LocationMap
-        title="Ubicación privilegiada"
-        badge="Encuéntranos"
         config={locationConfig}
-        mapHeight={{
-          mobile: "400px",
-          desktop: "550px",
-        }}
+        mapHeight={{ mobile: "400px", desktop: "550px" }}
       />
       <DeveloperSection
         config={developerConfig}

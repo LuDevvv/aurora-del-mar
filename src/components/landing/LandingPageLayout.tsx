@@ -4,7 +4,6 @@ import React from "react";
 import { WhatsAppButton } from "@components/ui/WhatsAppButton";
 import { Footer } from "@components/layout/Footer";
 import { Header } from "@components/layout/Header";
-import { useScrollTo } from "@hooks/useScrollTo";
 import {
   footerConfig,
   headerConfig,
@@ -16,8 +15,6 @@ export default function LandingPageLayout({
 }: {
   children?: React.ReactNode;
 }) {
-  const scrollToSection = useScrollTo();
-
   return (
     <div className="min-h-screen bg-white">
       <Header config={headerConfig} />

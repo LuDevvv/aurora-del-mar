@@ -1,15 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, User, Phone, MessageSquare, Clock } from "lucide-react";
-import { contactFormSchema, type ContactFormData } from "@lib/validations";
+import {
+  createTranslatableSchema,
+  type ContactFormData,
+} from "@lib/validations";
 import { Input } from "@components/ui/forms/Input";
 import { Textarea } from "@components/ui/forms/Textarea";
 import { Select } from "@components/ui/forms/Select";
 import { Button } from "@components/ui/forms/Button";
 import { DatePicker } from "@components/ui/forms/DatePicker";
+import { useTranslations } from "next-intl";
 
 export interface ContactFormConfig {
   showPhone?: boolean;
@@ -18,18 +22,6 @@ export interface ContactFormConfig {
   showTextArea?: boolean;
   showSubject?: boolean;
   labelColor?: boolean;
-  submitButtonText?: string;
-  successMessage?: string;
-  errorMessage?: string;
-  placeholders?: {
-    name?: string;
-    email?: string;
-    phone?: string;
-    subject?: string;
-    message?: string;
-    date?: string;
-  };
-  timeSlots?: string[];
   apiEndpoint?: string;
   onSuccess?: (data: ContactFormData) => void;
   onError?: (error: any) => void;
@@ -41,12 +33,12 @@ interface ContactFormProps {
 }
 
 export function ContactForm({ config, className }: ContactFormProps) {
+  const t = useTranslations("home.contact");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
 
-  // Default configuration
   const defaultConfig: ContactFormConfig = {
     showPhone: false,
     showDate: false,
@@ -54,31 +46,13 @@ export function ContactForm({ config, className }: ContactFormProps) {
     showTextArea: false,
     showSubject: true,
     labelColor: false,
-    submitButtonText: "Send Message",
-    successMessage: "Message sent successfully! We'll get back to you soon.",
-    errorMessage: "Failed to send message. Please try again.",
-    placeholders: {
-      name: "Your Name",
-      email: "your@email.com",
-      phone: "+1 (555) 123-4567",
-      subject: "Subject",
-      message: "Your message...",
-      date: "Select a date",
-    },
-    timeSlots: [
-      "10:00",
-      "11:00",
-      "12:00",
-      "13:00",
-      "14:00",
-      "15:00",
-      "16:00",
-      "17:00",
-    ],
     apiEndpoint: "/api/contact",
   };
 
   const finalConfig = { ...defaultConfig, ...config };
+
+  // Create translatable schema
+  const schema = useMemo(() => createTranslatableSchema(t), [t]);
 
   const {
     register,
@@ -87,26 +61,22 @@ export function ContactForm({ config, className }: ContactFormProps) {
     reset,
     setValue,
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
       email: "",
       phone: "",
-      subject: "Consulta desde formulario de contacto",
-      message: "Sin mensaje adicional",
+      subject: t("defaultSubject"),
+      message: t("defaultMessage"),
     },
   });
 
   const formatTimeForDisplay = (time: string) => {
     const [hour] = time.split(":");
     const hourNum = parseInt(hour);
-    if (hourNum >= 13) {
-      return `${hourNum - 12}:00 PM`;
-    } else if (hourNum === 12) {
-      return `${time} PM`;
-    } else {
-      return `${time} AM`;
-    }
+    if (hourNum >= 13) return `${hourNum - 12}:00 PM`;
+    if (hourNum === 12) return `${time} PM`;
+    return `${time} AM`;
   };
 
   const onSubmit = async (data: ContactFormData) => {
@@ -115,9 +85,7 @@ export function ContactForm({ config, className }: ContactFormProps) {
     try {
       const response = await fetch(finalConfig.apiEndpoint!, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
@@ -128,19 +96,16 @@ export function ContactForm({ config, className }: ContactFormProps) {
         reset();
         setSelectedDate(undefined);
         finalConfig.onSuccess?.(data);
-
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
         finalConfig.onError?.(result.error);
-
         setTimeout(() => setStatus("idle"), 8000);
       }
     } catch (error) {
       setStatus("error");
       finalConfig.onError?.(error);
       console.error("Contact form error:", error);
-
       setTimeout(() => setStatus("idle"), 8000);
     }
   };
@@ -150,58 +115,65 @@ export function ContactForm({ config, className }: ContactFormProps) {
     setValue("date", date.toISOString().split("T")[0]);
   };
 
+  const timeSlots = [
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+  ];
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={className}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-        {/* Name Input */}
         <Input
           {...register("name")}
-          label="Name"
-          placeholder={finalConfig.placeholders?.name}
+          label={t("name")}
+          placeholder={t("namePlaceholder")}
           icon={<User size={18} />}
           error={errors.name?.message}
           fullWidth
-          isLabelWhite={true}
+          isLabelWhite={finalConfig.labelColor}
         />
 
-        {/* Email Input */}
         <Input
           {...register("email")}
           type="email"
-          label="Email"
-          placeholder={finalConfig.placeholders?.email}
+          label={t("email")}
+          placeholder={t("emailPlaceholder")}
           icon={<Mail size={18} />}
           error={errors.email?.message}
           fullWidth
-          isLabelWhite={true}
+          isLabelWhite={finalConfig.labelColor}
         />
       </div>
 
-      {/* Phone Input (Optional) */}
       {finalConfig.showPhone && (
         <div className="mb-4">
           <Input
             {...register("phone")}
             type="tel"
-            label="Phone"
-            placeholder={finalConfig.placeholders?.phone}
+            label={t("phone")}
+            placeholder={t("phonePlaceholder")}
             icon={<Phone size={18} />}
             error={errors.phone?.message}
             fullWidth
-            isLabelWhite={true}
+            isLabelWhite={finalConfig.labelColor}
           />
         </div>
       )}
 
-      {/* Date and Time Row (Optional) */}
       {(finalConfig.showDate || finalConfig.showTime) && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           {finalConfig.showDate && (
             <DatePicker
               value={selectedDate}
               onChange={handleDateChange}
-              label="Preferred Date"
-              placeholder={finalConfig.placeholders?.date}
+              label={t("date")}
+              placeholder={t("selectDate")}
               error={errors.date?.message}
               disablePast
               disableSundays
@@ -212,28 +184,25 @@ export function ContactForm({ config, className }: ContactFormProps) {
           {finalConfig.showTime && (
             <Select
               {...register("time")}
-              label="Preferred Time"
+              label={t("time")}
               icon={<Clock size={18} />}
               error={errors.time?.message}
-              options={
-                finalConfig.timeSlots?.map((time) => ({
-                  value: time,
-                  label: formatTimeForDisplay(time),
-                })) || []
-              }
+              options={timeSlots.map((time) => ({
+                value: time,
+                label: formatTimeForDisplay(time),
+              }))}
               fullWidth
             />
           )}
         </div>
       )}
 
-      {/* Subject Input (Optional) */}
       {finalConfig.showSubject && (
         <div className="mb-4">
           <Input
             {...register("subject")}
-            label="Subject"
-            placeholder={finalConfig.placeholders?.subject}
+            label={t("subject")}
+            placeholder={t("subjectPlaceholder")}
             error={errors.subject?.message}
             fullWidth
             isLabelWhite={finalConfig.labelColor}
@@ -241,13 +210,12 @@ export function ContactForm({ config, className }: ContactFormProps) {
         </div>
       )}
 
-      {/* Message Textarea (Optional) */}
       {finalConfig.showTextArea && (
         <div className="mb-6">
           <Textarea
             {...register("message")}
-            label="Message"
-            placeholder={finalConfig.placeholders?.message}
+            label={t("message")}
+            placeholder={t("messagePlaceholder")}
             icon={<MessageSquare size={18} />}
             error={errors.message?.message}
             rows={5}
@@ -256,21 +224,19 @@ export function ContactForm({ config, className }: ContactFormProps) {
         </div>
       )}
 
-      {/* Submit Button */}
       <div className="flex flex-col items-start gap-4">
         <Button
           type="submit"
           variant="primary"
           size="lg"
           isLoading={status === "loading"}
-          loadingText="Sending..."
+          loadingText={t("sending")}
           disabled={status === "loading"}
           fullWidth
         >
-          {finalConfig.submitButtonText}
+          {t("submit")}
         </Button>
 
-        {/* Success Message */}
         {status === "success" && (
           <div
             className="w-full bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-800 p-4 rounded-lg shadow-sm animate-slide-up"
@@ -291,16 +257,13 @@ export function ContactForm({ config, className }: ContactFormProps) {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="font-medium">Success!</p>
-                <p className="text-sm text-green-600 mt-1">
-                  {finalConfig.successMessage}
-                </p>
+                <p className="font-medium">{t("successTitle")}</p>
+                <p className="text-sm text-green-600 mt-1">{t("success")}</p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Error Message */}
         {status === "error" && (
           <div
             className="w-full bg-gradient-to-r from-red-50 to-rose-50 border border-red-200 text-red-800 p-4 rounded-lg shadow-sm animate-slide-up"
@@ -321,10 +284,8 @@ export function ContactForm({ config, className }: ContactFormProps) {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="font-medium">Error</p>
-                <p className="text-sm text-red-600 mt-1">
-                  {finalConfig.errorMessage}
-                </p>
+                <p className="font-medium">{t("errorTitle")}</p>
+                <p className="text-sm text-red-600 mt-1">{t("error")}</p>
               </div>
             </div>
           </div>
