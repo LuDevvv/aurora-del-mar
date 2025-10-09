@@ -27,15 +27,15 @@ const jost = Jost({
 export const metadata: Metadata = {
   metadataBase: new URL("https://auradelmar.mussebgroup.com"),
   title: {
-    default: "Aura del Mar - Residencias de Lujo en Santo Domingo Este",
+    default: "Aura del Mar - Residencias de Lujo en Cap Cana",
     template: "%s | Aura del Mar",
   },
   description:
-    "Descubre Aura del Mar: exclusivo proyecto residencial con apartamentos de 2 y 3 habitaciones en Santo Domingo Este. Amenidades premium, áreas verdes y ubicación privilegiada. Feria inmobiliaria 6-8 junio 2025.",
+    "Descubre Aura del Mar: exclusivo proyecto residencial con apartamentos de 2 y 3 habitaciones en Cap Cana. Amenidades premium, áreas verdes y ubicación privilegiada. Feria inmobiliaria 6-8 junio 2025.",
 
   keywords: [
     "Aura del Mar",
-    "apartamentos lujo Santo Domingo Este",
+    "apartamentos lujo Cap Cana",
     "residencias premium República Dominicana",
     "apartamentos Santo Domingo",
     "Casalina Inmobiliaria",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "apartamentos 3 habitaciones",
     "amenidades premium",
     "áreas verdes",
-    "Santo Domingo Este",
+    "Cap Cana",
     "residencial exclusivo",
   ],
 
@@ -69,15 +69,15 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US"],
     url: "https://auradelmar.mussebgroup.com",
     siteName: "Aura del Mar",
-    title: "Aura del Mar - Residencias de Lujo en Santo Domingo Este",
+    title: "Aura del Mar - Residencias de Lujo en Cap Cana",
     description:
-      "Exclusivo proyecto residencial con apartamentos de 2-3 habitaciones. Amenidades premium, áreas verdes y ubicación privilegiada en Santo Domingo Este.",
+      "Exclusivo proyecto residencial con apartamentos de 2-3 habitaciones. Amenidades premium, áreas verdes y ubicación privilegiada en Cap Cana.",
     images: [
       {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aura del Mar - Residencias de lujo en Santo Domingo Este",
+        alt: "Aura del Mar - Residencias de lujo en Cap Cana",
         type: "image/png",
       },
     ],
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     creator: "@casalinasrl",
     title: "Aura del Mar - Residencias de Lujo",
     description:
-      "Exclusivo proyecto residencial en Santo Domingo Este. Apartamentos premium con amenidades de primer nivel.",
+      "Exclusivo proyecto residencial en Cap Cana. Apartamentos premium con amenidades de primer nivel.",
     images: [
       {
         url: "/images/og-image.png",
@@ -187,7 +187,7 @@ export default async function LocaleLayout({
 
         {/* Business/Location specific meta tags */}
         <meta name="geo.region" content="DO-32" />
-        <meta name="geo.placename" content="Santo Domingo Este" />
+        <meta name="geo.placename" content="Cap Cana" />
         <meta name="geo.position" content="18.4861;-69.8597" />
         <meta name="ICBM" content="18.4861, -69.8597" />
 
@@ -201,13 +201,13 @@ export default async function LocaleLayout({
               name: "Aura del Mar - Casalina Inmobiliaria",
               image: "/images/og-image.png",
               description:
-                "Residencias de lujo en Santo Domingo Este con amenidades premium",
+                "Residencias de lujo en Cap Cana con amenidades premium",
               url: "https://auradelmar.mussebgroup.com",
               telephone: "+1-809-299-5767",
               email: "Franciaborrome@gmail.com",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Santo Domingo Este",
+                addressLocality: "Cap Cana",
                 addressRegion: "Santo Domingo",
                 postalCode: "11501",
                 addressCountry: "DO",
@@ -225,6 +225,18 @@ export default async function LocaleLayout({
             }),
           }}
         />
+
+        {/* Umami Analytics */}
+        {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+          <script
+            defer
+            src={
+              process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL ||
+              "https://cloud.umami.is/script.js"
+            }
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          />
+        )}
       </head>
 
       <body
